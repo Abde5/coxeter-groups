@@ -1,0 +1,269 @@
+%%%%%%%%%%%%%%%%%%%% book.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample root file for the chapters of your "monograph"
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[envcountsame,envcountchap]{svmono}
+%\documentclass[envcountsame,envcountchap]{svmono}
+
+% choose options for [] as required from the list
+% in the Reference Guide, Sect. 2.2
+
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+\usepackage{amsmath,amssymb}         % matrices
+\usepackage{enumerate}
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+% etc.
+% see the list of further useful packages
+% in the Reference Guide, Sects. 2.3, 3.1-3.3
+
+
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\support}{supp}
+
+
+% NEW COMMANDS
+
+%It is standard in Latex to write "macros" which are shorthand for an entire series of instructions. Here are some examples
+
+%Number sets
+\newcommand{\N}{\mathbb N}
+%So typing \N produces the correct mathematical symbol for the natural numbers
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\K}{\mathbb K}
+%notations quelquonques
+\newcommand{\tg}[1]{\textbf{#1}}
+\newcommand{\ub}[1]{\overline{#1}}
+
+%notations des objets simples
+\newcommand{\es}{\emptyset}
+\newcommand{\nes}{$\not= \emptyset$}
+\newcommand{\sub}{\subset}
+\newcommand{\norm}[2]{\lVert #1 \lVert_{#2}}
+\newcommand{\vect}[2]{(#1_1,#1_2, \dots, #1_#2)}
+\newcommand{\modu}[1]{\lvert#1\lvert}
+\newcommand{\B}[3]{B_{#1}\big(#2,#3\big[}
+%notations mathématiques
+\newcommand{\lb}{\lbrack}
+\newcommand{\rb}{\rbrack}
+\newcommand{\lv}{\lVert}
+%limits and sum
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\li}[2]{\xrightarrow[#1\rightarrow#2]{}}
+\newcommand{\lis}[1]{\xrightarrow[n\rightarrow+\infty]{#1}}
+\newcommand{\lif}[1]{\xrightharpoonup[n\rightarrow+\infty]{#1}}
+\newcommand{\lic}[3]{\xrightarrow[#1\rightarrow#2]{#3}}
+
+\newcommand{\bcup}[2]{\bigcup\limits_{#1}^{#2}}
+\newcommand{\bcap}[2]{\bigcap\limits_{#1}^{#2}}
+
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\prods}[2]{\lanGLe\qq #1\qq,\qq#2\qq\ranGLe}
+
+\newcommand{\restr}[2]{#1_{\mkern 2mu \vrule height 2ex\mkern2mu #2} }
+\newcommand{\quot}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\limite}[2]{\underset{#1\rightarrow#2}{\text{lim}}}
+\newcommand{\espp}[2]{Ker\big(u-{#1} Id_{#2}\big)}
+\newcommand{\fct}[4]{\qq:\qq #1\qq\longrightarrow\qq #2\qq :\qq #3\qq \mapsto\qq #4}
+
+\newcommand{\lam}{\lambda}
+\newcommand{\q}{\quad}
+\newcommand{\qq}{\text{ }}
+
+\newcommand{\liste}[2]{#1_1, #1_2,..,#1_{#2}}
+
+\newcommand{\maxx}[1]{\underset{#1}{\text{max}}}
+\newcommand{\minn}[1]{\underset{#1}{\text{min}}}
+\newcommand{\supp}[1]{\underset{#1}{\text{sup}}}
+\newcommand{\inff}[1]{\underset{#1}{\text{inf}}}
+
+\newcommand{\fctt}[2]{\qq:\qq#1\qq\rightarrow\qq#2}
+\newcommand{\liminff}[1]{\underset{#1\rightarrow+\infty}{\text{liminf}}}
+\newcommand{\limsupp}[1]{\underset{#1\rightarrow+\infty}{\text{limsup}}}
+
+\newcommand{\adh}[2]{\text{Adh}_{#1}\big(#2\big)}
+\newcommand{\wed}[3]{#1_#2\wedge\dots \wedge #1_#3}
+
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\author{MATH-F-427 students}
+\title{Coxeter groups}
+\subtitle{Course notes}
+\maketitle
+
+\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+
+
+\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{definition}
+	Let $A$ be an algebra over $\C$. Then, the \tg{transcendence degree} of $A$ over $\C$ is the maximal number of algebraically independent elements of $A$. Recall that a subset $\{a_1,...,a_n\}\sub A$ is \tg{algebraically independent} if and only if there exists no polynomial $P\in \C  \lb Y_1,...,Y_n\rb \backslash \{0\}$ satisfying that $P(a_1,...,a_n)=0$.	
+\end{definition}
+
+\begin{proposition}
+	Let $G\sub \mbox{GL}(\C^n)$ then, the transcendence degree of $\C\lb x\rb^G$ over $G$ is $n$.
+\end{proposition}
+\begin{proof}
+	First of all, let us remember that $\C\lb x\rb^G$ is a sub algebra of $\C\lb x\rb$. In particular, this implies that the transcendence degree $\C\lb x\rb^G$ over $\C$ is at most $n$. Indeed, if $\{a_1,...,a_{n+1}\}\sub \C\lb x\rb^G$ were algebraically independent over $\C$, this would imply that $\{a_1,...,a_{n+1}\}$ is an algebraically independent set of $\C\lb x\rb$ and therefore contradicts the fact that the transcendence degree of $\C\lb x\rb$ is $n$. On the other hand, let us remark every of the $x_i$ is algebraic over $\C \lb x\rb^G$. Indeed, it is not hard to realise that for every $i\in \{1,...,n\}$, the polynomial :
+	\begin{equation}
+	P_i(t)\qq=\qq \underset{A\in G}{\prod}\qq (A x_i\qq-\qq t)
+	\end{equation}
+	is in $\C\lb x\rb^G$. Furthermore, since $\mbox{Id}_{\C^n}\in G$, we know that $P_i(x_i)=0$. In particular, this proves that the $x_i$ are algebraic over $\C \lb x\rb^G$. However, since those are algebraically independent elements in $C\lb x\rb$, this is only possible if there exists at least $n$ algebraically independent elements of $\C \lb x\rb$. This proves that the transcendence degree of $\C \lb x\rb$ is at least $n$ and therefore, as a consequence of our previous discussion, this proves that it is exactly $n$.
+\end{proof}
+
+\begin{definition}
+	An element $A\in\mbox{GL}(\C^n)$ is a \tg{pseudo-reflection} if $\mbox{dim}(\mbox{Ker}(A)-\mbox{Id}_{\C^n})=n-1$ and $A$ is of finite order in $G$.
+\end{definition}
+
+\begin{definition}
+	A finite subgroup $G$ of $\mbox{GL}(\C^n)$ is a \tg{complex reflection group} if it is generated by reflections.
+\end{definition}
+
+\begin{example}
+	The dihedral group $D^6$ can be seen as a group generated by reflection when it is considered as a subgroup of $\mbox{GL}(\C^2)$. In this case, it is nothing more than the group of symmetries of a regular hexagon in the plane. However, when we consider $D^6$ as the subgroup of $\mbox{GL}(\C^3)$ generated by :
+	\begin{equation*}
+	\begin{bmatrix}
+	1     & 0 & 0  \\
+	0     & -1 & 0  \\
+	0      & 0 & -1 
+	\end{bmatrix}\q\q \mbox{ and }\q\q 	\begin{bmatrix}
+	1/2   & -\sqrt{3}/2 & 0  \\
+	\sqrt{3}/2    & 1/2 & 0  \\
+	0      & 0 & 1 
+	\end{bmatrix}
+	\end{equation*}
+	can not be generated by reflections. In particular, it is therefore not a complex reflection group in $\mbox{GL}(\C^3)$. This example is of special interest since it shows that the definition depends on the dimension considered.
+\end{example}
+
+Now, let $\sigma\in \mbox{GL}(\C^n)$ be  reflection and let $H_\sigma=\mbox{Ker}(\sigma -\mbox{Id}_{\C^n})$. Then, we know that $H_\sigma$ is the solution of a linear equation given by a polynomial $L_\sigma\in \C\lb x\rb$. Moreover, this linear polynomial is unique up to multiplication by a non-zero complex number. The following lemma gives describe an interesting property of this polynomial.
+
+\begin{lemma}
+	For every function $f\in \C\lb x\rb$ and for every reflection $\sigma\in \mbox{GL}(\C^n)$ we the polynomial $L_\sigma$ divides the polynomial $\sigma f -f $.
+\end{lemma}
+\begin{proof}
+	Let $v\in H_\sigma$. Then, by definition $\sigma (v)=v$. In particular, this implies for every $f\in \C \lb x\rb$ that $\sigma f(v)=f(v)$ and therefore that $\big(\sigma f-f\big)(v)=0$ for every $v\in H_\sigma$. Furthermore, since $L_\sigma$ is of degree one, it is irreducible. In particular, the Nullstellensatz theorem implies that $L_\sigma$ divides $\sigma f -f$ since $H_\pi$ is the ideal generated by the irreducible polynomial $L_\sigma$.
+\end{proof}
+
+Now, let us define $I_G$ as the ideal of $\C\lb x\rb$ generated by homogeneous invariant polynomial of positive degree. 
+
+\begin{proposition}
+	Let $G$ be a finite reflection group, let $h_1,...,h_m$ be homogeneous polynomial polynomial of $\C \lb x\rb$, let $ g_1,...,g_m\in \C \lb x\rb^G$ be homogeneous invariant polynomials and let us suppose that :
+	\begin{equation}\label{l'equation de la prop nulle}
+	g_1 h_1 \qq+\qq g_2 h_2\qq+\qq \cdots \qq +\qq  g_m h_m \qq=\qq 0\qq \in \C  \lb x\rb\q.
+	\end{equation} 
+	Then, either $h_1\in I_G$ or $g_1$ belongs to the ideal of $\C \lb x\rb$ generated by $\{g_2,..., g_m\}$.
+\end{proposition}
+\begin{proof}
+	The proof is done by induction on the degree of $h_1$.
+	\begin{itemize}
+		\item When the degree of $h_1=0$ we make two cases. If $h_1=0$, we know that $h_1\in I_G$ and the claim follows. On the other hand, when $h_1$ is a non zero constant, Equation \ref{l'equation de la prop nulle} implies that $g_1$ is in the ideal generated by $\{g_2,...,g_m\}$. 
+		\item Now, let us suppose that the degree of $h_1$ is bigger than $1$ and that the claim is true for every $h_1'$ less than the degree of $h_1$. Now, let us suppose that $g_1$ is not in the ideal generated by $\{g_2,...,g_m\}$. Then, for every reflection $\sigma$ and since $g_i\in \C \lb x\rb^G $ for every $i=1,..., m$, we know that :
+		\begin{equation}
+		\begin{split}
+		0\qq=\qq \sigma (0)\qq&=\qq \sigma \qq \bigg(\qq \s{i=1}{m}\qq g_i h_i \qq \bigg)\\
+		&=\qq \s{i=1}{m}\qq g_i \qq \sigma h_i.
+		\end{split}
+		\end{equation}
+		On the other hand, as a consequence of previous lemma, we know that for every $i=1,..., m$ there exists a polynomial $\tilde{h}_i$ such that :
+		\begin{equation}
+		\sigma(h_i)\qq=\qq h_i\qq +\qq L_\sigma \qq \tilde{h}_i.
+		\end{equation}
+		Further more, since $h_i$, $\sigma h_i$ and $L_\sigma$ are homogeneous, this polynomial $\tilde{h}_\sigma$ is also homogeneous in $\C \lb x\rb$. Furthermore, the degree of this polynomial $\tilde{h}_i$ is by definition of degree of $\mbox{deg}(h_i)-1$ since $L_\sigma$ is of degree $1$.In particular, we obtain that :
+		\begin{equation}
+		0\qq=\qq \s{i=1}{m}\qq g_i (h_i + L\sigma \tilde{h}_i)\qq =\qq \s{i=1}{m}\qq g_i h_i\qq +\qq L_\sigma \s{i=1}{m}\qq g_i \tilde{h}_i\qq =\qq \qq L_\sigma \s{i=1}{m}\qq g_i \tilde{h}_i\qq.
+		\end{equation}
+		In particular, using the induction hypotheses, this implies that $\tilde{h}_1\in I_G$ and therefore that $\sigma h_1 -h_1 \qq=\qq L_\sigma \tilde{h_1}\in I_G$. However, we know that $G$ is generated by reflection. In particular, this implies that for every $\pi \in G$ there exists reflections $\sigma_1,..., \sigma_k$ such that $\pi = \sigma _1 ... \sigma_k$. Now, using a telescopic sum, this implies that :
+		\begin{equation}
+		\begin{split}
+		\pi h_1 \qq -\qq h_1\qq &=\qq \sigma_1 ... \sigma_k h_1\qq -\qq h_1\\
+		&=\qq \s{i=1}{k-1}\qq \sigma_1 ... \sigma_{i+1}h_1\qq-\qq  \sigma_1 ... \sigma_{i}h_1\\
+		&=\qq \s{i=1}{k-1}\qq \sigma_1 ... \sigma_{i}\qq (\sigma_{i+1}h_1-h_1)\qq \in \qq I_G\qq.
+		\end{split}
+		\end{equation}
+		In particular, since :
+		\begin{equation}
+		\frac{1}{\modu{G}}\qq \s{\pi\in G}{}\qq (\pi h_1 -h_1)\qq=\qq R_G(h_1)\qq -\qq h_1
+		\end{equation}
+		and since $R_G(h_1)\in I_G$ this implies that $h_1 \in I_G$.
+	\end{itemize} 
+\end{proof}
+
+\begin{theorem}[Shepard - Todd - Chevalley]
+	Let $G\sub \mbox{GL}(\C^n)$ be a finite group. Then, $\C \lb x\rb^G$ is generated by $n$ algebraically independent homogeneous invariant if and only if $G$ is a reflection group. 
+\end{theorem}
+\begin{proof}
+	($\Leftarrow$) Using the Hilbert basis theorem, we know that $I_G$ is finitely generated. In particular, since each of those generating polynomials is invariant, it can be generated by finitely many homogeneous invariant polynomials and we obtain that :
+	\begin{equation}
+	I_G \qq=\qq < \qq f_1,..., f_m\qq >
+	\end{equation}
+	with $f_1,..., f_m$ homogeneous invariant polynomials. Let us remark that this implies that $\C \lb x \rb^G=\C \lb f_1,..., f_m\rb$. To understand why, let us suppose the opposite. Let $h\in \C \lb x \rb^G\backslash \lb f_1,..., f_m \rb$ be an homogeneous polynomial of minimal degree for this property. Then, $h\qq=\qq \s{i=1}{m} \qq g_i f_i$ for some homogeneous polynomials $g_i$. In particular, because of the $G$ invariance of $h$ this implies that :
+	\begin{equation}
+	h\qq=\qq R_G (h)\qq=\qq \s{i=1}{m}\qq R_G (g_i)\qq h_i\qq .
+	\end{equation} 
+	However, $R_G(g_i)$ is an homogeneous polynomial of degree smaller than $h$. In particular, this implies by definition of $h$ that $R_G(g_i)\in \C \lb f_1,..., f_m \rb$ and we conclude that $h\in  \C \lb f_1,..., f_m \rb$. This leads to some contradiction and proves that $\C\lb x\rb^G =\C \lb f_1,..., f_m\rb$.
+	
+	Now, let $m$ be some minimal positive integer satisfying the property that :
+	\begin{equation}
+	I_G \qq=\qq < \qq f_1,..., f_m\qq >
+	\end{equation}
+	with $f_1,..., f_m$ homogeneous invariant polynomials. We want to show that $m=n$ or equivalently that $\{f_1,..., f_m\}$ are algebraically independent since the transcendence degree of $\C \lb x\rb^G$ is $n$. In order to prove this independence, let us reason by contradiction. Let us consider a polynomial $g(Y_1,..., Y_m)\in \C \lb Y_1,..., Y_m\rb \backslash \{0\}$ be such that :
+	\begin{equation}
+	g(f_1,..., f_m)\qq=\qq 0\qq
+	\end{equation}
+	and assume that $g$ has minimal degree and that every monomials of $g(f_1,..., f_m)$ before cancellation have the same degree.
+	
+	For every $i=1,..., m$ let us consider the polynomial :
+	\begin{equation}
+	g_i\qq =\qq \Big(\frac{\partial g}{\partial Y_i}\Big)(f_1,..., f_m)\qq \in \qq \C \lb x \rb^G\qq.
+	\end{equation}
+	We know that each of the $g_i$ is either $0$ or homogeneous of degree $d-\mbox{deg}(f_i)$. Since $g(Y_1,..., Y_m)$ is not constant, there exists some index $i$ such that $\frac{\partial g}{\partial Y_i}\not =0$ and therefore, by minimality assumption, $g_i\not=0$. Now, let $I = < g_1,..., g_m>$. Up to renaming those polynomials, we can assume that $I = < g_1,..., g_k>$, that no proper subset of $\{g_1,..., g_k\}$ generates $I$ and that $k$ is minimal for this property. Then, for every $i=k+1,..., m$ there must exists homogeneous polynomials $h_{ij}$ equal to $0$ or of degree $\mbox{deg}(g_i)-\mbox{deg}(g_j)=\mbox{deg}(f_i)-\mbox{deg}(f_j)$ such that :
+	\begin{equation}
+	g_i \qq =\qq \s{i=1}{k}\qq g_{ij}\qq g_j\qq. 
+	\end{equation}
+	In particular, we see that :
+	\begin{equation}
+	\begin{split}
+	0\qq &=\qq \frac{\partial\qq }{\partial x_s}g(f_1,...,f_m)\qq=\qq \s{i=1}{m}\qq g_i\qq \frac{\partial f_i}{\partial x_s}\\
+	&=\qq \s{i=1}{k}\qq g_i\qq \frac{\partial f_i}{\partial x_s} \qq+\qq \s{i=1}{m}\qq \bigg(\s{j=1}{m}\qq h_{ij}g_j\bigg)\qq  \frac{\partial f_i}{\partial x_s} \\
+	&=\qq \s{i=1}{k}\qq g_i\qq \bigg(\frac{\partial f_i}{\partial x_s} \qq+\qq \s{j=1}{m}\qq h_{ij}  \frac{\partial f_i}{\partial x_s} \bigg)\qq.
+	\end{split}
+	\end{equation}
+	As $g_1\not\in < g_2,..., g_m >$, the last proposition implies that :
+	\begin{equation}
+	\frac{\partial f_1}{\partial x_s}\qq+\qq \s{j=k+1}{m}\qq h_{ij}\qq \frac{\partial f_i}{\partial x_j}\qq \in \qq I_G\qq.
+	\end{equation}
+	In particular, this implies that  :
+	\begin{equation}
+	\begin{split}
+		\tilde{f}\qq &=\qq \s{s=1}{n}\qq x_s \qq \bigg(\frac{\partial f_1}{\partial x_s}\qq+\qq \s{j=k+1}{m}\qq h_{ij}\qq \frac{\partial f_i}{\partial x_j}\bigg)\qq\\
+		&=\qq \mbox{deg}(f_1)f_1\qq+\qq \s{j=1}{m}\qq \mbox{deg}(f_i)\qq h_j\qq f_j\qq \\
+		&\in I_G \qq < x_1,..., x_n>\qq\sub \qq < x_1 f_1,..., x_n f_m >\qq+\qq < f_2,..., f_m>.
+	\end{split}
+	\end{equation}
+	Ib particular, since every of the polynomial $x_1 f_1,..., x_n f_m$ is of degree strictly bigger than $\tilde{f}$, this implies that $\tilde{f}\in < f_2,..., f_m>$. In particular, $f_1 \in < f_2,..., f_m>$ which leads to some contradiction with the minimality of $m$.
+\end{proof}
+\end{document}

@@ -1,0 +1,399 @@
+%%%%%%%%%%%%%%%%%%%% book.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample root file for the chapters of your "monograph"
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[envcountsame,envcountchap]{svmono}
+%\documentclass[envcountsame,envcountchap]{svmono}
+
+% choose options for [] as required from the list
+% in the Reference Guide, Sect. 2.2
+
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+\usepackage{amsmath,amssymb}         % matrices
+\usepackage{enumerate}
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+% etc.
+% see the list of further useful packages
+% in the Reference Guide, Sects. 2.3, 3.1-3.3
+
+
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\support}{supp}
+
+
+% NEW COMMANDS
+
+%It is standard in Latex to write "macros" which are shorthand for an entire series of instructions. Here are some examples
+
+%Number sets
+\newcommand{\N}{\mathbb N}
+%So typing \N produces the correct mathematical symbol for the natural numbers
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\K}{\mathbb K}
+%notations quelquonques
+\newcommand{\tg}[1]{\textbf{#1}}
+\newcommand{\ub}[1]{\overline{#1}}
+
+%notations des objets simples
+\newcommand{\es}{\emptyset}
+\newcommand{\nes}{$\not= \emptyset$}
+\newcommand{\sub}{\subset}
+\newcommand{\norm}[2]{\lVert #1 \lVert_{#2}}
+\newcommand{\vect}[2]{(#1_1,#1_2, \dots, #1_#2)}
+\newcommand{\modu}[1]{\lvert#1\lvert}
+\newcommand{\B}[3]{B_{#1}\big(#2,#3\big[}
+%notations mathématiques
+\newcommand{\lb}{\lbrack}
+\newcommand{\rb}{\rbrack}
+\newcommand{\lv}{\lVert}
+%limits and sum
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\li}[2]{\xrightarrow[#1\rightarrow#2]{}}
+\newcommand{\lis}[1]{\xrightarrow[n\rightarrow+\infty]{#1}}
+\newcommand{\lif}[1]{\xrightharpoonup[n\rightarrow+\infty]{#1}}
+\newcommand{\lic}[3]{\xrightarrow[#1\rightarrow#2]{#3}}
+
+\newcommand{\bcup}[2]{\bigcup\limits_{#1}^{#2}}
+\newcommand{\bcap}[2]{\bigcap\limits_{#1}^{#2}}
+
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\prods}[2]{\langle\qq #1\qq,\qq#2\qq\rangle}
+
+\newcommand{\restr}[2]{#1_{\mkern 2mu \vrule height 2ex\mkern2mu #2} }
+\newcommand{\quot}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\limite}[2]{\underset{#1\rightarrow#2}{\text{lim}}}
+\newcommand{\espp}[2]{Ker\big(u-{#1} Id_{#2}\big)}
+\newcommand{\fct}[4]{\qq:\qq #1\qq\longrightarrow\qq #2\qq :\qq #3\qq \mapsto\qq #4}
+
+\newcommand{\lam}{\lambda}
+\newcommand{\q}{\quad}
+\newcommand{\qq}{\text{ }}
+
+\newcommand{\liste}[2]{#1_1, #1_2,..,#1_{#2}}
+
+\newcommand{\maxx}[1]{\underset{#1}{\text{max}}}
+\newcommand{\minn}[1]{\underset{#1}{\text{min}}}
+\newcommand{\supp}[1]{\underset{#1}{\text{sup}}}
+\newcommand{\inff}[1]{\underset{#1}{\text{inf}}}
+
+\newcommand{\fctt}[2]{\qq:\qq#1\qq\rightarrow\qq#2}
+\newcommand{\liminff}[1]{\underset{#1\rightarrow+\infty}{\text{liminf}}}
+\newcommand{\limsupp}[1]{\underset{#1\rightarrow+\infty}{\text{limsup}}}
+
+\newcommand{\adh}[2]{\text{Adh}_{#1}\big(#2\big)}
+\newcommand{\wed}[3]{#1_#2\wedge\dots \wedge #1_#3}
+
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\author{MATH-F-427 students}
+\title{Coxeter groups}
+\subtitle{Course notes}
+\maketitle
+
+\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+
+
+\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Coxeter groups}
+
+
+
+	\begin{theorem}\label{Theorem de l'extension en un morphisme injectif de groupe.}
+		The application $\pi$, defined on the set of generators $S$ of the coxeter system $(W,S)$, extend uniquely to an injective homomorphism :
+		\begin{equation}
+		\pi\fctt{W}{S^B_T}
+		\end{equation}
+	\end{theorem}
+	\begin{proof}
+		First of all, we need to show that the extension of $\pi$ is well defined. It was clear, due to the definition of $\pi$ on $S$ that for every $s\in S$, the application $\pi_s\in S^B_T$. Indeed, for every $t\in T$ we had that $\pi_s(t)\in T\cup \ub{T}$ and $\pi_s$ defined a bijection on $T\cup \ub{T}$. In order to check that its extension on all of $W$ is well defined we need to check 2 things. First, we need to check that $\forall w\in W$ the application $\pi_w\in S_T^B$. However, since we extended $\pi$ from $S$ to $W$ to be a group morphism, we know that $\pi_w$ is by definition the composition of $\pi_s$ for some $s\in S$ and thus is an element of $S_T^B$. Secondly, we need to check that this application $\pi_w$ does not depend on the writing of $w\in W$. In order to show this, let us take some element $t\in T$ and let $w=s_1s_2..s_k$ for some $s_i\in S$ (this is the form of every element of $W$ since $s_i=s_i^{-1}$ for all $i$). Since, we want $\pi$ to be a homomorphism, we have that :
+		\begin{equation}\label{equation donnant la form explicite de pi}
+		\begin{split}
+		\pi_w(t)\qq&=\qq \pi_{s_1}\circ\pi_{s_2}\circ ... \circ \pi_{s_k}(t)\\
+		&=\qq \pi_{s_1}\circ\pi_{s_2}\circ ... \circ \pi_{s_{k-1}}(\pm s_kts_k)\q\q\\
+		& \q\qq (\mbox{with }-\mbox{ iff }s_kts_k=s_k\iff t=s_k)\\
+		&=\qq \pi_{s_1}\circ\pi_{s_2}\circ ... \circ \pi_{s_{k-2}}(\pm\pm s_{k-1}s_kts_ks_{k-1})\q\q\\
+		& \q\qq(\mbox{with }-\mbox{ iff }s_{k-1}s_kts_ks_{k-1}=s_{k-1}\iff t=s_ks_{k-1}s_k)\\
+		&=\qq \pi_{s_1}\circ\pi_{s_2}\circ ... \circ \pi_{s_{k-3}}(\pm\pm\pm s_{k-2}s_{k-1}s_kts_ks_{k-1}s_{k-2})\q\q \\
+		&\q\qq (\mbox{with }-\mbox{ iff }s_{k-1}s_kts_ks_{k-1}=s_{k-1}s_{k-2}\iff t=s_ks_{k-1}s_{k-2}s_{k-1}s_k)\\
+		&\qq \vdots\q\q \q\vdots\q\q \q\vdots\q\q \q\vdots\q\q \q\vdots\q\q \q\vdots\q\q \q\vdots\q\q \q\vdots\q\q \q\vdots\q\q \vdots\\
+		&=\qq \pm\pm \dots \pm s_1s_2...s_kts_ks_{k-1}... s_1\q\q\\
+		& \q\qq (\mbox{with }-\mbox{ iff }s_1...s_{k-1}s_kts_ks_{k-1}...s_1=s_{1}\iff t=s_k...s_2s_1s_2...s_k)\\
+		&=\mbox{sgn}_w(t)\qq wtw^{-1}
+		\end{split}
+		\end{equation}
+		Where the function $\mbox{sgn}_w(t)$ is a sign function counting the number of indices $l\in \{1,2,...k\}$ such that $t=s_k...s_{l-1}s_l s_{l-1}...s_k$. Namely :
+		\begin{equation}
+		 \mbox{sgn}_w(t)\qq=\qq (-1)^{\# \{1\leq l\leq k\qq :\qq t=s_k...s_{l-1}s_l s_{l-1}...s_k\}}
+		\end{equation}
+		As we will show just after this sign function does not depend on the writing of $w\in W$ in the coxeter system $(W,S)$. But first, let us get some intuition about what this sign function is counting, by looking to the case of $S_n$ : aaaaaaaaaaa\\
+		
+		We are now going to use equation \ref{equation donnant la form explicite de pi} to prove that the sign function does not depend on the writing of $w\in W$ in the Coxeter system $(W,S)$ and  therefore that $\pi$ is a well defined homomorphism. In order to show this, it suffices to show that every relations we had in $(W,S)$ are satisfied by their image in $S^B_T$. In other words, we want to show that taking two elements $s,s'\in S$ we have that :
+		\begin{equation}\label{equation provant que les relations sont preserves par pi}
+		(\pi_s\circ \pi_{s'})^{m(s,s')}\qq=\qq \mbox{Id}_{S^B_T}
+		\end{equation}
+		Since $(ss')^{-1}=s's$, equation \ref{equation donnant la form explicite de pi} gives us for every $t\in T$ :
+		\begin{equation}
+		(\pi_s\circ \pi_{s'})^{m(s,s')}(t)\qq=\qq \pm\qq (ss')^{m(s,s')}t(s's)^{m(s,s')}\qq=\qq \pm \qq et e\qq=\qq\pm \qq  t
+		\end{equation}
+		The sign must be $+$ as here, $w=(ss')^{m(s,s')}$ and therefore we look at :
+		\begin{equation}
+		{\# \{1\leq l\leq m(s,s') \qq :\qq t=\underset{2l-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}\}}
+		\end{equation}
+		which is even since for every $l\leq m(s,s')/2$ we have :
+		\begin{itemize}
+			\item if $ m(s,s')$ is even : 
+			\begin{equation}
+			t\qq= \underset{2l-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}=\underset{2l-1 + m(s,s') \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}= \underset{2(l+m(s,s')/2)-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}} 
+			\end{equation}
+			\item  if $ m(s,s')$ is odd :
+			\begin{equation}
+			t\qq=\underset{2l-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}=\underset{2l-1 +m(s,s') \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}= \underset{2((m(s,s')-1)/2+l)+1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}} 
+			\end{equation} 
+		\end{itemize}
+	In particular, this implies that if one index is counted below $m(s,s')/2$ then there exists an other index counted strictly bigger than $m(s,s')/2$ and vis versa. Thus the set must be even and the sign must be $+$. In particular, this proves equation \eqref{equation provant que les relations sont preserves par pi} and $\pi$ is a well defined morphism.
+	
+	It last to show that the extension of $\pi$ is injective. Let $u,v\in W$ be such that $\pi_u=\pi_v$ then, we have that :
+	\begin{equation}
+	\pi_{uv^{-1}}\qq=\qq \pi_u\circ \pi_{v^{-1}}\qq=\qq \mbox{Id}_{S_T^B}\qq=\qq  \pi_e
+	\end{equation}
+	Thus, in order to prove the injectivity of $\pi$ we just need to show that if $w\in W$ is such that $\pi_w=\pi_e$ then $w=e$. Now, let's take $w\in W$ such that $\pi_w=\pi_e$ and let us suppose absurdly that $w\not=e$ then, there exists $k\geq 1$ such that $w=s_1...s_k$ is the shorter way possible to write $w\in W$ (meaning that $k$ is the smallest possible) then :
+	\begin{equation}\label{equation pour la contradiction par signe de sk}
+	\begin{split}
+		s_k\qq=\qq\pi_e(s_k)\qq&=\qq \pi_w(s_k)\qq =\qq\mbox{sgn}_w(s_k)\qq s_1...s_{k-1}s_ks_ks_ks_{k-1}...s_1\qq\\
+		&=\qq\mbox{sgn}_w(s_k)\qq s_1...s_{k-1}s_ks_{k-1}...s_1
+	\end{split}
+	\end{equation}
+	On the other hand, $\mbox{sgn}_w(s_k)=-1$ because :
+	\begin{equation}
+	\{1\leq l\leq k\qq :\qq t=s_k...s_{l-1}s_l s_{l-1}...s_k\}\qq=\qq \{k\}
+	\end{equation} 
+	Indeed, for $l=k$ we have $s_k=s_k$. But if $l\not=k$ and if we had :
+	\begin{equation}
+	s_k=\qq s_k..s_l..s_k
+	\end{equation}
+	Then we would have :
+	\begin{equation}
+	s_{l-1}...s_ks_k\qq=\qq s_l...s_k
+	\end{equation}
+	And therefore  we would have a contradiction with the minimality of $k$ since :
+	\begin{equation}
+	\begin{split}
+	w&=s_1...s_ls_{l-1}s_l...s_k\qq\\
+	&=\qq s_1...s_{l-1}s_{l-1}...s_ks_k\qq\\
+	&=\qq s_1..s_{l-2}s_{l+1}...s_{k-1}\qq\\
+	&=\qq s_1...s_{l-2}s_{l+1}...s_{k-1}
+	\end{split}
+	\end{equation}
+	which is a shorter way to write $w$. Therefore, we have that $\mbox{sgn}_w(s_k)=-1$ and thus equation \ref{equation pour la contradiction par signe de sk} gives :
+	\begin{equation}
+			s_k\qq=\qq -\qq  s_1...s_{k-1}s_ks_{k-1}...s_1
+	\end{equation}
+	Which is a contradiction due to the presence of a sign.\qed
+	\end{proof}
+	We are now going to define the notions of \tg{parity} and \tg{length} of an element in a Coxeter group. 
+	\begin{definition}
+		Let $(W,S)$ be a Coxeter system, and let $w\in W$, then we say that $w=s_1...s_k$ $(s_l\in S)$ is :
+		\begin{itemize}
+			\item \tg{even} when $k$ is even.
+			\item \tg{odd} when $k$ is odd.
+		\end{itemize}
+	This is what we call the \tg{parity} of $w\in W$.
+	\end{definition}
+\begin{remark}
+	As every relations in a Coxeter group involve an even number of $s\in S$ we see that the parity of an element $w\in W$ does not depend on its writing in $W$.
+\end{remark}
+The set of even elements of a Coxeter system $(W,S)$ is a subgroup of $W$ called the \tg{alternating} subgroup. 
+\begin{remark}
+	When $S_n$ is seen as a Coxeter group with $S=\{s_1...s_{n-1}\}$ and the Coxeter matrix $m(s_i,s_{i+1})=3$ and $m(s,s')=2$ for every other couple of the type $(s,s')\not=(s,s)$, it is quite easy to remark that the two notions of alternating group does coincide and therefore that this appellation is well chosen.
+\end{remark}
+\begin{definition}
+	Let $(W,S)$ be a Coxeter system, the \tg{length} $l(w)$ of an element $w\in W$ is defined as the smallest integer $k\in \N$ such that there exists simple reflections $s_1,...,s_k\in S$ satisfying $w=s_1...s_k$.
+\end{definition}
+The purpose of what follows is to prove the following theorem :
+\begin{theorem}\label{theorem sur le calcul des longueurs}
+	Let $(W,S)$ be a Coxeter system, and let $w\in W$ then :
+	\begin{equation}
+	l(w)\qq=\qq \#\{t\in T\qq :\qq \mbox{sgn}_{w^{-1}}(t)=-1\}
+	\end{equation}
+\end{theorem}
+\begin{example}
+	In the case where $W=S_n$ with the common representation, $l(w)$ is exactly the number of inversion of $w^{-1}$ which is exactly the same as the number of inversion of $w$ itself.
+\end{example}
+Before proving this thorem, we focus our attention on some lemma :
+\begin{lemma}\label{le lemme de la longueur de tw}
+	Let $(W,S)$ be a Coxeter system and let $w\in W$, $t\in T$ then :
+	\begin{equation}
+	\mbox{sgn}_{w^{-1}}(t)=-1\q \iff \q l(tw)\qq<\qq l(w)
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Let's suppose that $\mbox{sgn}_{w^{-1}}(t)=-1$ and let $w=s_1...s_k$ with $k=l(w)$ then $w^{-1}=s_k...s_1$. We know that there must exists some $1\leq l\leq k$ such that $t=s_1...s_l..s_1$ but then :
+	\begin{equation}
+	\begin{split}
+	tw\qq&=\qq s_1s_2...s_l...s_1\qq s_1s_2...s_ls_{l+1}...s_k\\
+	&=\qq s_1s_2...s_{l-1}s_{l+1}...s_k\\
+	&=\qq s_1s_2...\hat{s_l}...s_k
+	\end{split}
+	\end{equation}
+	From which we conclude that $l(tw)\leq k-1\qq <\qq k=l(w)$ and the first implication is proved.
+	
+	Conversely, let's suppose that $l(tw)<l(w)$ then, as $tt=e$ we have that :
+	\begin{equation}
+	l(tw)\qq <\qq l(ttw)\qq \Rightarrow l(ttw)\not<l(tw) 
+	\end{equation} 
+	Therefore, using the first implication of the Lemma we obtain by taking $\tilde{w}=tw$ that :
+	\begin{equation}
+	\mbox{sgn}_{\tilde{w}^{-1}}(t)\qq=\qq \mbox{sgn}_{w^{-1}t}(t)\qq =\qq+1
+	\end{equation}
+	Thus, 
+	\begin{equation}
+	\pi_{(tw)^{-1}}(t)\qq=\qq +1 \qq (tw)^{-1}\qq t\qq(tw)\qq=\qq w^{-1}tw
+	\end{equation}
+	However, since $\pi$ is a morphism we have that :
+	\begin{equation}\label{pi est un homo}
+	\pi_{(tw){-1}}\qq=\qq\pi_{w^{-1}t}\qq=\qq =\pi_{w^{-1}}\circ\pi_t
+	\end{equation}
+	Now let's remark that $\forall t\in T$ we have that :
+	\begin{equation}
+	\pi_t(t)\qq=\qq \mbox{sgn}_t(t)\qq ttt\qq=\qq -t
+	\end{equation}
+	Indeed, let us write $t=s_1...s_kss_k...s_1$ for $k$ minimal. Then it is clear that :
+	\begin{equation}\label{le signe de t de t}
+	\{1\leq l\leq 2k+1\qq :\qq t=s_1...s_{l-1}s_l s_{l-1}...s_1\}\qq=\qq \{k+1\}
+	\end{equation}
+	as by the minimality, it can not be true for some index $l\leq k$ that $t=s_1...s_{l-1}s_l s_{l-1}...s_1$ and as if it was true for some index $l= k+1+l'$ with $l'>0$ we would have that  :
+	\begin{equation}
+	t\qq=\qq s_1s_2...s_kss_k...s_{k-l'+1}s_{k-l'}s_{k-l'+1}...s_kss_k...s_2s_1
+	\end{equation} 
+	Therefore, by multiplying both sides by $s_1s_2...s_ks$ from the right and by $ss_k...s_2s_1$ from the left, we would obtain that :
+	\begin{equation}
+	s\qq=\qq s_k...s_{k-l'+1}s_{k-l'}s_{k-l'+1}...s_k
+	\end{equation}
+	Therefore, by replacing $s$ in $t$ we would have that :
+	\begin{equation}
+	t\qq=\qq s_1...s_kss_k...s_1\qq=\qq s_1...s_ks_k...s_{k-l'+1}s_{k-l'}s_{k-l'+1}...s_ks_k...s_1\qq=\qq s_1...s_{k-l'}...s_1
+	\end{equation}
+	which would contradict the minimality of $k$. In particular, this proves that the equality \eqref{le signe de t de t} is verified and we have that :
+	\begin{equation}
+	\pi_t(t)\qq=\qq -t
+	\end{equation}
+	Further more, by computing equality \eqref{pi est un homo} on $t$ we obtain that :
+	\begin{equation}
+	\begin{split}
+	\pi_{(tw)^{-1}}(t)\qq&=\qq \pi_{w^{-1}}\pi_t(t)\qq\\
+	&=\qq \pi_{w^{-1}}(-t)\qq\\
+	&=\qq -\qq \pi_{w^{-1}}(t)\\
+	&=\qq -\mbox{sgn}_{w^{-1}}(t)\qq w^{-1}tw
+	\end{split}
+	\end{equation}
+	And we finally conclude that $\mbox{sgn}_{w^{-1}}(t)=-1$. \qed
+	
+\end{proof}
+As a Corollary we have the following lemma :
+\begin{lemma}[The exchange property]
+	Let $(W,S)$ be a Coxeter system, let $w=s_1s_2...s_k\in W$ and $t\in T$, then, if $l(tw)<l(w)$, there exists some $1\leq l\leq k$ such that :
+	\begin{equation}
+	tw\qq=\qq s_1s_2...\hat{s_l}... s_k
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	By the previous lemma, we know that $\mbox{sgn}_{w^{-1}}(t)\qq=\qq -1$. Therefore, we know there exists an index $1\leq l\leq k$ such that $tw\qq=\qq s_1s_2...\hat{s_l}... s_k$.\qed 
+\end{proof}
+\begin{lemma}\label{les equivalences pour tw}
+	Let $(W,S)$ be a Coxeter system and let $w=s_1s_2...s_k\in W$, with $k=l(w)$ and let us take some $t\in T$. Then, the following are equivalent :
+	\begin{enumerate}
+		\item $l(tw)<l(w)$
+		\item $tw\qq=\qq s_1...\hat{s_l}...s_1$ for some $1\leq l\leq k$
+		\item $t=s_1...s_l...s_1$ for some $1\leq l\leq k$
+	\end{enumerate}
+Moreover, such an index $l$ is uniquely determined.
+\end{lemma}
+\begin{proof}
+	By Lemma \ref{le lemme de la longueur de tw} we already know that $(1)$ implies $(2)$. Furthermore, the equivalence between $(2)$ and $(3)$ is a tautology. Let us prove that $(2)$ implies $(1)$. Indeed, if $tw\qq=\qq s_1...\hat{s_l}...s_1$ for some $1\leq l\leq k$ then :
+	\begin{equation}
+	l(tw)\qq \leq \qq k+1\qq <\qq k \qq=\qq l(w)
+	\end{equation} 
+	which is $(1)$. It last to show that this $l$ appearing in property $(2)$ and $(3)$ is unique under the hypothesis that $k=l(w)$. Let us define $t_i=s_1s_2...s_i...s_1$ for all $1\leq i\leq k$. Then, we want to show that  $t_i\not=t_j$ for every $i\not=j$. Let us reason by contradiction and suppose the contrary. In other words, let us suppose that there exists some indices $i<j$ such that $t_i=t_j$. Then, 
+	\begin{equation}
+	\begin{split}
+	w\qq&=\qq t_it_j\qq w\\
+	&=\qq t_is_1...\hat{s_j}...s_k\\
+	&=\qq s_1...\hat{s_i}...\hat{s_j}...s_k
+	\end{split}
+	\end{equation} 
+	As $i$ was less than $j$. But this is a contradiction with the exchange property applied to $t=t_it_j$. Therefore we needed that $t_i\not=t_j$ for every $i\not=j$. In particular $l$ must be unique.
+	\qed 
+\end{proof}
+We are now ready to prove theorem \ref{theorem sur le calcul des longueurs}. 
+\begin{proof}
+	Let $w=s_1s_2...s_k$ with $k=l(w)$, then $w^{-1}=s_k...s_1$ and due to the previous lemma, we know that :
+	\begin{equation}
+	\begin{split}
+		\#\{t\in T\qq :\qq \mbox{sgn}_{w^{-1}}(t)=-1\}\qq\q\q\q\q\q\q\q \\
+		=\qq \# \{t\in T\qq:\qq t=s_1...s_i...s_k\qq \mbox{for some }1\leq i\leq k\}\qq=\qq k\qq =l(w)
+	\end{split}
+	\end{equation}
+	As every of the $t_i=s_1...s_i...s_1$ are different from each other. \qed
+\end{proof}
+The following theorem, describe the writing reduction of a word in a Coxeter group when this one is not written in a minimal way. 
+\begin{theorem}[Deletion property]
+	Let $(W,S)$ be a Coxeter system and let $w=s_1s_2...s_k$ for some $k$ with $l(w)<k$ then there exists two different indices $1\leq i<j\leq k$ such that :
+	\begin{equation}
+	w\qq=\qq s_1...\hat{s_i}...\hat{s_j}...s_k
+	\end{equation}
+\end{theorem}
+As a simple consequence of this theorem , we obtain the following :
+\begin{proposition}
+	Let $(W,S)$ be a Coxeter system and let $w=s_1...s_k$ for some $s_i\in S$ then, if $l(w)<k$ there exists a subword $s_{i_1}...s_{i_{l(w)}}$ of $s_1...s_k$ such that $w=s_{i_1}...s_{i_{l(w)}}$.
+\end{proposition}
+This proposition is used in the following :
+\begin{proposition}
+	Let $(W,S)$ be a Coxeter system, and let's suppose that $w=s_1s_2...s_k=s_1's_2'...s_k'$ for some $s_i,s_i'\in S$ with $k=l(w) $. Then, \begin{equation}
+	\{s_1,s_2,...,s_k\}\qq=\qq \{s_1',s_2',...,s'_k\}
+	\end{equation}
+\end{proposition}
+\begin{remark}
+	To be precise, the upper equality is an equality of sets an not of multi-sets. Indeed, as a simple example that the multi-sets can be different, we take the Coxeter group $S_3$ and the permutation $(2,3)(1,2)(2,3)=(1,3)=(1,2)(2,3)(1,2)$. In particular, in this example, even if the sets are equal, we have different multi sets associated to $(1,3)$. Namely :
+	\begin{equation}
+	\{(2,3),(1,2),(2,3)\}\q \mbox{and}\q \{(1,2),(2,3),(1,2)\}
+	\end{equation}
+\end{remark}
+\begin{proof}
+	Suppose that the two sets are not equal. Therefore, there exists an $1\leq i\leq k$ minimal such that $s_i\not\in  \{s_1',s_2'...s'_k\}$. Furthermore, by lemma \ref{les equivalences pour tw} we know that :
+	\begin{equation}
+	\begin{split}
+	\{s_1'...s_j'...s_1':j=1,2,...,k\}\qq&=\qq \{t\in T\qq:\qq l(tw)<l(w)\}\qq\\
+	&=\qq \{s_1...s_j...s_1:j=1,2,...,k\}
+	\end{split}
+	\end{equation}
+	As those sets are equal, there must be an index $1\leq j\leq k$ such that for our minimal index $i$ we have :
+	\begin{equation}
+	s_1...s_i...s_1\qq=\qq s_1'...s_j'...s_1'
+	\end{equation}
+	In particular, by previous proposition, there exists a subword of the right hand side which is of size $1$ and which is equal to $s_i\in W$. Therefore, either $s_i$ is one of the previous $s_1...s_{i-1}$ which would be a contradiction with the minimality of $i$, or $s_i$ is one of the $s_1',...,s_j'$ which is a contradiction with our choice of $i$. Therefore, the two sets must be the same.
+\end{proof}
+\end{document}

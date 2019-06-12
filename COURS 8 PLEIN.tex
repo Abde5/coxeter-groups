@@ -1,0 +1,392 @@
+%%%%%%%%%%%%%%%%%%%% book.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample root file for the chapters of your "monograph"
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[envcountsame,envcountchap]{svmono}
+%\documentclass[envcountsame,envcountchap]{svmono}
+
+% choose options for [] as required from the list
+% in the Reference Guide, Sect. 2.2
+
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+\usepackage{amsmath,amssymb}         % matrices
+\usepackage{enumerate}
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+% etc.
+% see the list of further useful packages
+% in the Reference Guide, Sects. 2.3, 3.1-3.3
+
+
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\support}{supp}
+
+
+% NEW COMMANDS
+
+%It is standard in Latex to write "macros" which are shorthand for an entire series of instructions. Here are some examples
+
+%Number sets
+\newcommand{\N}{\mathbb N}
+%So typing \N produces the correct mathematical symbol for the natural numbers
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\K}{\mathbb K}
+%notations quelquonques
+\newcommand{\tg}[1]{\textbf{#1}}
+\newcommand{\ub}[1]{\overline{#1}}
+
+%notations des objets simples
+\newcommand{\es}{\emptyset}
+\newcommand{\nes}{$\not= \emptyset$}
+\newcommand{\sub}{\subset}
+\newcommand{\norm}[2]{\lVert #1 \lVert_{#2}}
+\newcommand{\vect}[2]{(#1_1,#1_2, \dots, #1_#2)}
+\newcommand{\modu}[1]{\lvert#1\lvert}
+\newcommand{\B}[3]{B_{#1}\big(#2,#3\big[}
+%notations mathématiques
+\newcommand{\lb}{\lbrack}
+\newcommand{\rb}{\rbrack}
+\newcommand{\lv}{\lVert}
+%limits and sum
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\li}[2]{\xrightarrow[#1\rightarrow#2]{}}
+\newcommand{\lis}[1]{\xrightarrow[n\rightarrow+\infty]{#1}}
+\newcommand{\lif}[1]{\xrightharpoonup[n\rightarrow+\infty]{#1}}
+\newcommand{\lic}[3]{\xrightarrow[#1\rightarrow#2]{#3}}
+
+\newcommand{\bcup}[2]{\bigcup\limits_{#1}^{#2}}
+\newcommand{\bcap}[2]{\bigcap\limits_{#1}^{#2}}
+
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\prods}[2]{\langle\qq #1\qq,\qq#2\qq\rangle}
+
+\newcommand{\restr}[2]{#1_{\mkern 2mu \vrule height 2ex\mkern2mu #2} }
+\newcommand{\quot}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\limite}[2]{\underset{#1\rightarrow#2}{\text{lim}}}
+\newcommand{\espp}[2]{Ker\big(u-{#1} Id_{#2}\big)}
+\newcommand{\fct}[4]{\qq:\qq #1\qq\longrightarrow\qq #2\qq :\qq #3\qq \mapsto\qq #4}
+
+\newcommand{\lam}{\lambda}
+\newcommand{\q}{\quad}
+\newcommand{\qq}{\text{ }}
+
+\newcommand{\liste}[2]{#1_1, #1_2,..,#1_{#2}}
+
+\newcommand{\maxx}[1]{\underset{#1}{\text{max}}}
+\newcommand{\minn}[1]{\underset{#1}{\text{min}}}
+\newcommand{\supp}[1]{\underset{#1}{\text{sup}}}
+\newcommand{\inff}[1]{\underset{#1}{\text{inf}}}
+
+\newcommand{\fctt}[2]{\qq:\qq#1\qq\rightarrow\qq#2}
+\newcommand{\liminff}[1]{\underset{#1\rightarrow+\infty}{\text{liminf}}}
+\newcommand{\limsupp}[1]{\underset{#1\rightarrow+\infty}{\text{limsup}}}
+
+\newcommand{\adh}[2]{\text{Adh}_{#1}\big(#2\big)}
+\newcommand{\wed}[3]{#1_#2\wedge\dots \wedge #1_#3}
+
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\author{MATH-F-427 students}
+\title{Coxeter groups}
+\subtitle{Course notes}
+\maketitle
+
+\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+
+
+\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Some representation theory.}
+The purpose of this section is to prove the following theorem :
+\begin{theorem}\label{Le theorem W fini si et seulement si on  aun produit scalaire}
+	Let $(W,S)$ be a Coxeter system then the Coxeter group $W$ is finite if and only if the symmetric bilinear form, we defined on the associated vector space  $V=<\{\alpha_1,...,\alpha_n\}>$ by :
+	\begin{equation}
+	\prods{\alpha_i}{\alpha_j}_V\qq=\qq \begin{cases}
+	\qq -\cos(\pi/m(s_i,s_j))\q\q&\mbox{if }m(s_i,s_j)<+\infty\\
+	\q -1&\mbox{if }m(s_i,s_j)=+\infty
+	\end{cases}
+	\end{equation}
+	is positive definite on $V$.
+\end{theorem}
+The proof of this theorem is done by using some topology and some representation theory. First of all let us prove that if the symmetric bilinear form is positive definite, then $W$ must be finite.
+
+Let $(W,S)$ be a Coxeter system and let $\pi$ denotes the injective group homomorphism of Theorem \ref{Theorem de l'extension en un morphisme injectif de groupe.}. Since this one defines a group homomorphism :
+\begin{equation}
+\pi\fctt{W}{\mbox{GL(V)}},
+\end{equation}
+it is by definition a representation of the Coxeter group $W$ with representation space $V=<\{\alpha_1,...,\alpha_n\}>$. In particular, we can consider the contragredient representation $\pi^*$ of $\pi$ defined as :
+\begin{equation}
+\pi^*\fct{W}{\mbox{GL}(V^*)}{w}{\sigma(w^{-1})^T},
+\end{equation}
+where $V^*$ denotes the dual vector space of $V$ and $A^T$ denote the transpose of $A$ for every $A\in \Hom(V,V)$, in other words, for every $f\in V^*$ we have that $A^T(f)=f\circ A$. Since, the representation $\pi$ was faithful, namely since the group automorphism $\pi$ was injective, it is clear that its contragredient representation $\pi^*$ must also be faithful. In particular, this means that $W$ can be seen as a subgroup $\pi^*(W)$ of $\mbox{GL}(V)$. Furthermore, by denoting the natural pairing between $V^*$ and $V$ by $(\cdot,\cdot)$ :
+\begin{equation}
+(\cdot,\cdot)\fct{V^*\times V}{\R}{(f,v)}{f(v)},
+\end{equation}
+we see that for every $w\in W$ and for all $f\in V^*,\qq v\in V$ we have that :
+\begin{equation}
+\begin{split}
+(\pi^*(w)f,v)\qq&=\qq \pi^*(w)f(v)\\
+&=\qq \pi(w)^Tf(v)\qq\\
+&=\qq f\circ\pi(w)(v)\qq\\
+&=\qq f(\pi(w)v)\qq\\
+&=\qq (f,\pi(w)v).
+\end{split}
+\end{equation}
+Now, let us equip the group $\pi^*(W)$ with a natural topology. Since
+\begin{equation}
+\pi^*(W)\sub \mbox{GL}(V^*)\sub\Hom(V^*,V^*)\simeq\R^{n^2},
+\end{equation} 
+we see that $\Hom(V^*,V^*)$ can be equipped with the natural topology of balls associated with any finite dimensional real vector space and therefore, we can consider the quotient topology on $\pi^*(W)$ naturally induced on $\pi^*(W)$ by the inclusion map. We have the following Lemma :
+\begin{lemma}
+	The topology induced on $\pi^*(W)$ by the inclusion map into $\Hom(V^*,V^*)$ is the discrete topology. In other words, every sets of the form $\{g\}$ for some $g\in \pi^*(W)$ defines an open of $\pi^*(W)$.
+\end{lemma}
+\begin{proof}
+	Take any point $f\in V^*$, then, we can consider the map :
+	\begin{equation}
+	\mbox{ev}_f\fct{\mbox{GL}(V^*)}{V^*}{g}{g(f)}.
+	\end{equation}
+	This map is continuous for every $f\in V^*$ because it is linear and any linear operator between finite dimensional vector spaces must be continuous for the unique normed topology associated. Furthermore, since the :
+	\begin{equation}
+	A_{s_i}\qq=\qq \{f\in V^*\qq :\qq (f,\alpha_i)>0\}
+	\end{equation}
+	defines open subsets of $V^*$ for every $i=1,...,n$, and since every finite intersection of open stays open, the fundamental chamber $C=\bcap{i=1}{n}A_{s_i}$ of $W$ is an open subset of $V^*$. In particular, since the preimage of any open set by a continuous map is by definition an open set, this implies that for every $f\in V^*$ the set :
+	\begin{equation}
+	Z_f\qq=\qq \{g\in \mbox{GL}(V^*)\qq:\qq g(f)\in C\}\qq=\qq \mbox{ev}_f^{-1}
+	\end{equation}
+	is an open subset of $\mbox{GL}(V^*)$. In particular, for every element of the fundamental chamber $f \in C\sub V^*$, the set $Z_f$ must defines an open neighbourhood of the identity $\mbox{Id}_{V^*}\fctt{V^*}{V^*}$ since $\mbox{Id}_{V^*}\in Z_f$ and since $Z_f$ defines an open set of $\mbox{GL}(V^*)$. Because of the first point of Theorem \ref{le gros theorem en 3 points qui decrit le comportement de la chambre, du cone de tites,...} and since $C=C_\es$, we know that the only element $w\in W$ such that $\pi(w)(C)\cap C\not=\es$ is $1_W$ because $W_\es=\{1_G\}$ is the set of stabiliser of $C_\es$, we obtain that $\pi(1_G)=\mbox{Id}_{V^*}$ is the only element of $\pi^*(W)$ which is in $Z_f$. In symbols, this means that :
+	\begin{equation}
+	Z_f\cap \pi^*(W)\qq=\qq \{\mbox{Id}_{V^*}\},
+	\end{equation}
+	defines an open neighbourhood of $\mbox{Id}_{V^*}$ in $\pi^*(W)$, but, since this groups defines a topological group, as this is a subgroup of the topological group $\mbox{GL}(V^*)$ equipped with the induced topology, we know that the left multiplication by any element $\pi^*(w)\in \pi^*(W)$ :
+	\begin{equation}
+	\mbox{Mult}_{\pi^*(w)}\fct{\pi^*(W)}{\pi^*(W)}{\pi^*(w')}{\pi^*(w)\pi^*(w')}
+	\end{equation}
+	defines an homeomorphism. In particular, we see that the set :
+	\begin{equation}
+	\{\pi^*(w)\}\qq=\qq \mbox{Mult}_{\pi^*(w)}\{\mbox{Id}_{V^*}\},
+	\end{equation}
+	defines an open neighbourhood of $\pi^*(w)$ and since this holds for every ${\pi^*(w)}\in \pi^*(W)$, the group $\pi^*(W)$ must be discrete.
+\end{proof}
+This allow us to prove what we announced before :
+\begin{theorem}[First implication of Theorem \ref{Le theorem W fini si et seulement si on  aun produit scalaire}]
+	If the symmetric bilinear form  $\prods{}{}_V$ defined on $V$ is positive definite, then $W$ must be finite.
+\end{theorem}
+\begin{proof}
+	We suppose that the symmetric bilinear form $\prods{}{}_V$ defined on $V$ is positive definite, therefore, this defines a scalar product on $V$. Now, let us remark that, because of the second point of Proposition \ref{les sigma definisse une isometrie.}, for every $v_1,v_2\in V$ we have that :
+	\begin{equation}
+	\prods{\pi(w)v_1}{\pi(w)v_2}_V\qq=\qq \prods{v_1}{v_2}_V.
+	\end{equation}
+	Therefore,  $\pi(W)$ defines a set of isometries for the scalar product $\prods{}{}_V$ on $V$. In particular, this means that $\pi(W)\sub \mathcal{O}(V)$, where $\mathcal{O}(V)$ denotes the the set of all orthonormal transformation of $V$.
+	Now, let us remark that the scalar product $\prods{}{}$ induce a scalar product on the dual space $V^*$. Indeed, it suffices to fix an orthonormal basis $\{e_1,...,e_n\}$ of $V$, to consider its dual basis $\{e_1^*,...,e_n^*\}$ which because of Riesz representation Theorem is exactly to the dual basis $\{\prods{e_1}{}_V,...,\prods{e_n}{}_V\}$ and then defines :
+	\begin{equation}
+	\prods{e_i^*}{e_j^*}_{V^*}\qq:=\qq\prods{e_i}{e_j}_V\qq=\qq \delta_{ij}.
+	\end{equation} 
+	Under this definition and since $\pi(W)\sub \mathcal{O}(V)$ we see that $\pi^*(W)\sub \mathcal{O}(V^*)$ because the transpose of an orthonormal operator is an orthonormal operator in the dual space. Now, let us remark that $\mathcal{O}(V^*)$ is closed in $\Hom(V^*,V^*)\sub \R^{n^2}$. Indeed, since $\prods{}{}_V^*$ is a symmetric bilinear form, it correspond to some symmetric matrix $A$ in a fixed basis $\{e_1^*,...,e_n^*\}$ of $V^*$. Furthermore, under this correspondence, a matrix $B$ correspond to an element of $\mathcal{O}(V^*)$ if and only if it is solution of the equation :
+	 \begin{equation}
+	 BAB^T\qq=\qq A.
+	 \end{equation}
+	 This defines a closed condition and therefore $\mathcal{O}(V^*)$ is a closed set in $\Hom(V^*,V^*)\simeq\R^{n^2}$. Remark that we did not use the fact that the bilinear form $\prods{}{}_V$ was positive definite to show that $\mathcal{O}(V^*)$ is a closed set. Furthermore, since every norm on finite dimensional vector space are equivalent and since every matrices of $\mathcal{O}(V^*)$ is bounded for the norm $\norm{\cdot}{\infty}$ defined as $\norm{A}{\infty}=\underset{i,j\in \{1,..,n\}}{\mbox{max}}\qq A_{i,j}$ for every matrix $A\sub \R^{n^2}$, we see that $\mathcal{O}(V^*)$ is bounded in $\Hom(V^*,V^*)$. Therefore, the set $\mathcal{O}(V^*)$ is closed and bounded in the finite dimensional normed vector space $\Hom(V^*,V^*)$, and the Riesz theorem implies that $\mathcal{O}(V^*)$ is a compact set. Furthermore, the previous lemma showed that $\pi^*(W)$ was equipped with the discrete topology. Since it is contained in a compact, the only possibility is that $\pi^*(W)$ is finite, but since $\pi^*$ was injective, this implies that $W$ is finite. 
+\end{proof}
+The second implication of Theorem \ref{Le theorem W fini si et seulement si on  aun produit scalaire} will require some representation theory that we develop just below. 
+
+\begin{definition}
+	Let $G$ be a finite group and let $\pi \fctt{G}{\mbox{GL(V)}}$ define a representation of $G$ in some real finite dimensional vector space $V$. Then, a bilinear form $\prods{}{}$ defined on $V$ is said to be $G$-invariant if for every $u,v\in V$ and all $g\in G$ we have that :
+	\begin{equation}
+	\prods{\pi(g)u}{\pi(g)v}\qq=\qq \prods{u}{v}.
+	\end{equation}
+\end{definition}
+The following lemma implies that such a form always exists. 
+\begin{lemma}\label{existence of a g invariant non degenerate bilinear form on the representaion sapce}
+	For every finite group $G$ and every representation $\pi \fctt{G}{\mbox{GL(V)}}$ of $G$ in a real finite dimensional vector space $V$, there exists some $G$-invariant positive definite bilinear form on $V$.
+\end{lemma}
+\begin{proof}
+	The proof is straight forward. Let us consider any basis $\{e_1,...,e_n\}$ of $V$. Form this point, we can define some bilinear non degenerate form on $V$ by setting on the basis :
+	\begin{equation}
+	\prods{e_i}{e_j}_V\qq=\qq \delta_{ij},
+	\end{equation}
+	and by extending the bilinear form on $V$ by linearity. Now, let us define for every $u,v\in V$ :
+	\begin{equation}
+	\prods{u}{v}\qq=\qq \s{g\in G}{}\prods{\pi(g)u}{\pi(g)v}_V.
+	\end{equation} 
+	This defines a $G$-invariant bilinear symmetric form on $V$. The positive definite character follows from the fact that $\prods{u}{u}\geq 0$ with equality if and only if $u=0$ since $\prods{\pi(g)u}{\pi(g)u}_V\geq 0$ and since $\prods{\pi(1_G)u}{\pi(1_G)u}_V=\prods{u}{u}_V\geq 0$ with equality if and only if $u=0$.
+\end{proof}
+Now, let us make some definitions :
+\begin{definition}
+	Let $G$ be a finite group and let $\pi \fctt{G}{\mbox{GL(V)}}$ defines a representation of $G$ in some real finite dimensional vector space $V$, we say that $W\sub V$ is a $G$-invariant subspace of $V$ if and only if $\pi(g)W\sub W$ for every $g\in G$.
+\end{definition} 
+Let us remark that $\{0\}$ and $V$ always defines $G$-invariant subspaces of $V$.
+\begin{definition}
+	Let $G$ be a finite group and let $\pi \fctt{G}{\mbox{GL(V)}}$ define a representation of $G$ in some real finite dimensional vector space $V$, we say that $\pi$ is irreducible if and only if there is no $G$-invariant subspaces of $V$ but the trivial ones $\{0\}$ and $V$.
+\end{definition} 
+\begin{theorem}
+	Let $G$ be a finite group and let $\pi \fctt{G}{\mbox{GL(V)}}$ define a representation of $G$ in some real finite dimensional vector space $V$. If $U\sub V$ defines a non-trivial $G$-invariant subspace of $V$, then, there exists some $U'\sub V$ which is also $G$-invariant and such that :
+	\begin{equation}
+	U\qq \oplus \qq U'\qq=\qq V.
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	Let us consider some $G$-invariant bilinear form $\prods{}{}$ on $V$ and let us define :
+	\begin{equation}
+	U'\qq=\qq U^\perp\qq=\qq\{v\in U\qq :\qq \prods{u}{v}=0\q \forall u\in U\}.
+	\end{equation}
+	It is not hard to see that :
+	\begin{equation}
+	U\qq \oplus \qq U'\qq=\qq V.
+	\end{equation}
+	Furthermore, for every $g\in G$, very $u\in U$ and every $v\in U'=U^\perp$ we have that :
+	\begin{equation}
+	\prods{u}{\pi(g)v}\qq=\qq \prods{\pi(g^{-1})u}{v}\qq=\qq 0.
+	\end{equation}
+	The last equality following from the fact that $U$ is $G$-invariant and that $v\in U^\perp$ and we deduce that $U^\perp$ is $G$-invariant.
+\end{proof}
+\begin{definition}
+	Let $G$ be a finite group and let $\pi \fctt{G}{\mbox{GL(V)}}$ define a representation of $G$ in some real finite dimensional vector space $V$. We define the centralizer of $\pi$ as the set :
+	\begin{equation}
+	Z_G\qq=\qq \{A\in \mbox{GL(V)}\qq :\qq A\pi(g)=\pi(g)A\qq\forall g\in G\}.
+	\end{equation}
+\end{definition}
+Now, let us recall the reciprocate of Schur's Lemma :
+\begin{lemma}\label{si le centralisateur n'est fait que d'application scalaire, alors V est irreductible}
+	Let $G$ be a finite group and let $\pi \fctt{G}{\mbox{GL(V)}}$ define a representation of $G$ in some real finite dimensional vector space $V$, then, if the centraliser of $\pi$ consists only of scalar operators :
+	\begin{equation}
+	Z_G(V)\qq=\qq \{c\mbox{Id}_V\qq :\qq c\in \R\backslash\{0\}\},
+	\end{equation}
+	the representation $\pi$ must be irreducible.
+\end{lemma}
+\begin{proof}
+	Suppose by absurd that $\pi$ is not irreducible, and let $U$ denotes some non trivial $G$-invariant subspace of $V$. Using previous lemma, we know that there exists some other non trivial $G$-invariant subspace $U'$ of $V$ such that $U\oplus U'=V$.
+	Now, let us consider the projection :
+	\begin{equation}
+	P_U\qq\fct{V}{U}{u+u^\perp}{u}.
+	\end{equation}
+	Since $U$ is a $G$-invariant subspace of $V$, and due to previous lemma the map $P_U$ defines a $G$-morphism between $V$ and $U$. Indeed, for all $g\in G$ and for all $u+u'\in U\oplus U'=V$ we have that :
+	\begin{equation}
+	P_U(\pi(g)(u+u'))\qq=\qq P_U(\pi(g)u+\pi(g)u')\qq=\qq \pi(g)u,
+	\end{equation}
+	since from the $G$-invariance of $U$ and $U'$ we have that $\pi(g)u\in U$ and $\pi(g)u'\in U'$. In particular, we conclude that $P_u$ defines a $G$ morphism from $V$ to $V$ since $P_U\pi(g)=\pi(g)P_U$. Using the same argument, the projection on $U'$,  $P_{U'}$ also defines a $G$-morphism from $V$ to $V$. Therefore, $P_U,P_{U'}\in Z_G(V)$. In particular, this means that :
+	\begin{equation}
+	P_u\qq+\qq 2\qq P_{U'}\qq \in Z_G(V).
+	\end{equation}
+	Therefore, by hypothesis $P_u\qq+\qq 2\qq P_{U'}\qq=\qq c\mbox{Id}_V$ for some $c\in \R\backslash\{0\}$. This is a contradiction with the fact that $U$ and $U'$ are non trivial subspaces and that $P_U$ and $P_{U'}$ defines scalar operators on $V$ since they also defines element of $Z_G(V)$.
+\end{proof}
+Under the same hypothesis, it is possible to show that there exists up to multiplication by a scalar, a unique non degenerate $G$-invariant bilinear form on $V$.
+\begin{lemma}
+		Let $G$ be a finite group and let $\pi \fctt{G}{\mbox{GL(V)}}$ define a representation of $G$ in some real finite dimensional vector space $V$, then, if the centraliser of $\pi$ consists only of scalar operators :
+		\begin{equation}
+		Z_G(V)\qq=\qq \{c\mbox{Id}_V\qq :\qq c\in \R\backslash\{0\}\},
+		\end{equation}
+		then, there exists up to multiplication by a scalar, a unique non degenerate $G$-invariant bilinear form on $V$.
+\end{lemma}
+\begin{proof}
+	The existence of such a bilinear form is guaranteed by Lemma \ref{existence of a g invariant non degenerate bilinear form on the representaion sapce}. It last to show the unicity up to multiplication by a scalar. Following this purpose, let us consider $\prods{}{}_1$ and $\prods{}{}_2$. Let us fix a basis $\{u_1,...,u_n\}$ of $V$. Now, let us consider a basis $\{v_1,...,v_n\}$ of $V$ which is dual to the basis $\{u_1,...,u_n\}$ with respect to the scalar product $\prods{}{}_1$, which means that $\prods{u_i}{v_j}_1=\delta_{ij}$. Similarly, let us consider basis $\{w_1,...,w_n\}$ of $V$ which is dual to the basis $\{u_1,...,u_n\}$ with respect to the scalar product $\prods{}{}_2$, which means that $\prods{u_i}{w_j}_2=\delta_{ij}$. Let us define a linear application $\varphi\fctt{V}{V}$, by the relation $\varphi(v_i)=w_i$. Then, it is clear that $\varphi\in \mbox{GL}(V)$. Furthermore, for every $i,j\in \{1,...n\}$ and for all $g\in G$ we have that :
+	\begin{equation}
+	\prods{u_i}{\varphi(v_j)}_2\qq=\qq \prods{u_i}{w_j}_2\qq=\qq \delta_{ij}\qq=\qq\prods{u_i}{v_j}_1
+	\end{equation}
+	In particular, this implies that for every $u,v\in V$ and for all $g\in G$, we have that :
+	\begin{equation}
+	\begin{split}
+	\prods{u}{\pi(g)\varphi(v)}_2\qq&=\qq \prods{\pi(g^{-1})u}{\varphi(v)}_2\qq\\
+	&= \qq \prods{\pi(g^{-1})u}{v}_1\\
+	&=\qq  \prods{u}{\pi(g)v}_1\\
+	&=\qq  \prods{u}{\varphi(\pi(g)v)}_2.
+	\end{split}
+	\end{equation}
+	Therefore, by non degeneracy of the scalar product $\prods{}{}_2$, we obtain that $\pi(g)\varphi(v)=\varphi(\pi(g)v)$ for every $v\in V$ and for all $g\in G$. Therefore, this implies that $\varphi\in Z_G(V)$, and by hypothesis, there exists some $c\in \R\backslash\{0\}$ such that $\varphi=c\mbox{Id}_V$, which means that :
+	\begin{equation}
+	\prods{u}{v}_1\qq=\qq\prods{u}{\varphi(v)}_2\qq=\qq c\prods{u}{v}_2.
+	\end{equation}
+	This proves as wanted that $\prods{}{}_1=c\prods{}{}_2$ for some $c\in \R\backslash\{0\}$.
+\end{proof}
+\begin{proposition}\label{la seule form G invariante non nul est positve si jamais on a un centralizer scalaire}
+	Let $G$ be a finite group and let $\pi \fctt{G}{\mbox{GL(V)}}$ define a representation of $G$ in some real finite dimensional vector space $V$, then, if the centraliser of $\pi$ consists only of scalar operators :
+	\begin{equation}
+	Z_G(V)\qq=\qq \{c\mbox{Id}_V\qq :\qq c\in \R\backslash\{0\}\},
+	\end{equation}
+	the only non zero $G$-invariant symmetric bilinear form up to multiplication by a scalar is the positive definite one.
+\end{proposition}
+\begin{proof}
+	Let $\prods{}{}$ be a non zero $G$-invariant symmetric bilinear from. Then the space :
+	\begin{equation}
+	V^\perp\qq=\qq \{v\in V\qq :\qq \prods{v}{w}=0\qq\forall w\in V\}
+	\end{equation}
+	is a $G$-invariant subspace of $V$. But due to Lemma \ref{si le centralisateur n'est fait que d'application scalaire, alors V est irreductible}, $\pi$ is irreducible and therefore, since $\prods{}{}$ is non zero, this implies that $V^\perp=\{0\}$. We conclude that $\prods{}{}$ is non degenerate and therefore, applying the previous Lemma, we conclude that there must exists a constant $c$ such that our bilinear form $\prods{}{}$ is multiple of the positive definite one given by Lemma \ref{existence of a g invariant non degenerate bilinear form on the representaion sapce}.
+\end{proof}
+
+Now, let us come back to the study of Coxeter groups.
+Having this last proposition in mind, we just need to show that the centraliser of $W$ given by our representation $\pi \fctt{W}{\mbox{GL}(V)}$ is exactly $\{c\mbox{Id}_V\qq:\qq c\in \R\backslash\{0\}\}$ to prove the second implication of Theorem \ref{Le theorem W fini si et seulement si on  aun produit scalaire}. This require just a little bit of work.
+
+\begin{definition}
+	A Coxeter system $(W,S)$ is said to be irreducible if the corresponding Coxeter graph is connected. 
+\end{definition}
+\begin{lemma}
+	If $(W,S)$ is an irreducible Coxeter system, then the centraliser of the representation $\pi$ consists of scalar operators :
+	\begin{equation}
+	Z_W(V)\qq=\qq\{c\mbox{Id}_V\qq:\qq c\in \backslash\{0\}\}
+	\end{equation} 
+\end{lemma}
+\begin{proof}
+	Let $A$ be an element of the centralizer of $\pi\fct{W}{\mbox{GL}(V)}{s_i}{\sigma_{\alpha_i}}$, namely $A\in Z_W(V)$. Then, by definition $A$ commutes with the application $\sigma_\alpha$ where $\alpha\in \Delta=\{\alpha_1,...,\alpha_n\}$ is a simple root of $V$. Therefore, we obtain that :
+	\begin{equation}
+	\sigma_\alpha A\alpha\qq=\qq A\sigma_\alpha\alpha\qq=\qq A(-\alpha) \qq=\qq -A(\alpha).
+	\end{equation}
+	In particular, this implies that $A\alpha=c_\alpha\alpha$ for some $c_\alpha\in \R\backslash\{0\}$ since $\sigma_\alpha(\phi^+\backslash\{\alpha\})=\phi^+$ and since $A\in \mbox{GL}(V)$. Now, let $\beta\in\Delta$ be any simple root of $V$, then, we obtain that :
+	\begin{equation*}
+	A\sigma_\alpha\beta\qq=\qq \sigma_\alpha A\beta
+	\end{equation*}
+	\begin{equation*}
+	\iff \q A\qq \big(\beta\qq-\qq 2\frac{\prods{\alpha}{\beta}}{\prods{\alpha}{\alpha}}\alpha\big)\qq=\qq A(\beta)\qq -\qq 2\frac{\prods{A(\beta)}{\alpha}}{\prods{\alpha}{\alpha}}\alpha
+	\end{equation*}
+	\begin{equation*}
+	\iff \q A(\beta)\qq-\qq 2\frac{\prods{\alpha}{\beta}}{\prods{\alpha}{\alpha}}A(\alpha)\qq=\qq A(\beta)\qq -\qq 2\frac{\prods{c_\beta\beta}{\alpha}}{\prods{\alpha}{\alpha}}\alpha
+	\end{equation*}
+	\begin{equation*}
+	c_\alpha\prods{\alpha}{\beta}\qq\alpha \qq =\qq c_\beta\qq \prods{\beta}{\alpha}\qq \alpha
+	\end{equation*}
+	From this last equality, we identify two cases. Either $c_\alpha=c_\beta$ or $\prods{\alpha}{\beta}=0$ which means that $\sigma_\alpha$ and $\sigma_\beta$ commutes. Since the Coxeter graph associated to $W$ is connected, we see that for any two simple roots $\alpha,\beta$ there exists a path of non commuting simple roots $\alpha=\alpha'_1,...,\alpha'_k=\beta$ and we therefore obtain that $c_\alpha=c_{\alpha'_1}=c_{\alpha'_2}=...=c_{\alpha'_k}=c_\beta$, which proves that $c_\alpha=c_\beta$ for any two simple roots $\alpha,\beta\in \Delta$. In particular, this implies that $A=c\mbox{Id}_V$ for some $c\not=0$.
+\end{proof}
+
+This implies the second implication of Theorem \ref{Le theorem W fini si et seulement si on  aun produit scalaire} :
+\begin{theorem}[Second implication of Theorem \ref{Le theorem W fini si et seulement si on  aun produit scalaire}]
+	If $W$ is finite, the symmetric bilinear form  $\prods{}{}_V$ defined on $V$ must be positive definite.
+\end{theorem}
+\begin{proof}
+	As we already remarked before, because of Proposition \ref{la seule form G invariante non nul est positve si jamais on a un centralizer scalaire} it suffices to show that :
+	\begin{equation}
+	Z_W(V)\qq=\qq\{c\mbox{Id}_V\qq:\qq c\in \R\backslash\{0\}\}
+	\end{equation} 
+	for the Theorem to handle. First of all, let us remark that if $(W,S)$ is a coxeter system such that its Coxeter graph $\Gamma$ can be written as a disjoint union of two other non empty graphs $\Gamma=\Gamma_1\sqcup \Gamma_2$ then, both $\Gamma_1$ and $\Gamma_2$ are the Coxeter graphs of some parabolic subgroup $W_{I_1}$ and $W_{I_2}$ of $W$ such that $S=I_1\sqcup I_2$ and therefore, 
+	\begin{equation}
+	W\qq\simeq\qq W_{I_1}\qq \times \qq W_{I_2}
+	\end{equation}
+	Since the relation between elements of  $W_{I_1}$ and $W_{I_2}$ are consists only of the commutation of any two elements. In particular, this implies that for any $i\in I_1$ and any $j\in I_2$, $m(s_i,s_j)=2$ in particular, this implies that $\prods{\alpha_i}{\alpha_j}=-\cos(\pi/m(s_i,s_j))=0$ and we see that the matrix of $\prods{}{}$ in the basis $\Delta=\{\alpha_1,...,\alpha_n\}$ is of the form :
+	\begin{equation}
+	\begin{bmatrix}
+	A_{I_1} & 0\\
+	0 & A_{I_2}
+	\end{bmatrix}
+	\end{equation}
+	where $A_{I_1}$and $A_{I_2}$ denotes the matrix of the bilinear form associated to the new Coxeter groups $W_{I_1}$ and $W_{I_2}$ which coincide with the restriction og $\prods{}{}$ to the subspaces of $V$ generated by $\{\alpha_i:i\in I_1\}$ and $\{\alpha_i:i\in I_2\}$ respectively. In particular, by iteration, we can restrict our attention to the connected component of the Coxeter graph $\Gamma$ which therefore correspond to an irreducible parabolic subgroup $W_I$ of $W$. Furthermore, by the previous Lemma, and what we remarked before, the restriction of $\prods{}{}$ on the parabolic subgroup $W_I$ is positive definite. This implies that $\prods{}{}$ is positive definite and the Theorem is proved. 
+\end{proof}
+\end{document}
