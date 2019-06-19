@@ -1,0 +1,208 @@
+
+\begin{proposition}
+Take $\varphi \in GL(V)$ with $\langle \varphi (u), \varphi (v) \rangle = \langle u, v \rangle$, $\forall u, v \in V$. Then, we have the following properties:
+\begin{itemize}
+\item 1) $\varphi \sigma_\alpha \varphi^{-1} = \sigma_{\varphi (\alpha) }$,
+\item 2) $\sigma_\alpha = \sigma_\beta$ if and only if $\alpha = c \beta$ with $c \neq 0$,
+\item 3) $\sigma_\alpha$ and $\sigma_\beta$ commute if and only if $\langle \alpha , \beta \rangle = 0$ or $\alpha = c \beta$ with $c\neq 0$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+1) This is a simple computation let to the reader.
+
+2) It is obvious to see that the condition is sufficient. Let us show that it is necessary. If $\sigma_\alpha = \sigma_\beta$, then
+\begin{equation}
+\begin{split}
+\sigma_\alpha (v) &= v  - 2\frac{ \langle v, \alpha \rangle \alpha}{\langle \alpha, \alpha \rangle} \\
+&= v - 2 \frac{\langle v, \alpha \rangle}{\langle \alpha, \alpha \rangle} \\
+&= v - 2 \frac{\langle v, \beta \rangle}{\langle \beta, \beta \rangle} \\
+&= \sigma_\beta (v)
+\end{split}
+\end{equation} $\forall v \in V$. This implies that
+\begin{equation}
+\frac{\langle v, \alpha \rangle}{\langle \alpha, \alpha \rangle} = \frac{\langle v, \beta \rangle}{\langle \beta, \beta \rangle}
+\end{equation} $\forall v \in V$, which leads to $\alpha = c\beta$, with $c\neq 0$.
+
+3) We have
+\begin{equation}
+(\sigma_\alpha \sigma_\beta - \sigma_\beta \sigma_\alpha ) v =  ( \langle v , \beta \rangle \alpha - \langle v , \alpha \rangle \beta ) \frac{4 \langle \alpha, \beta \rangle}{\langle \alpha, \alpha \rangle \langle \beta , \beta \rangle}
+\end{equation} $\forall v \in V$. The right-hand side gives $0$ if and only if $\langle \alpha , \beta \rangle = 0$ or $\alpha = c \beta$ with $c \neq 0$.
+
+\end{proof}
+
+\begin{proposition}
+Let $(\Phi, \Delta )$ be a root system. We have the following properties:
+\begin{itemize}
+\item 1) If $\beta \in \Phi$, then $\langle \beta, \beta \rangle > 0$, $\sigma_\beta \in W$, and $-\beta \in \Phi$.
+\item 2) If $\alpha, \beta \in \Delta$, $\alpha \neq \beta$, then $\langle \alpha, \beta \rangle \le 0$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+1) Let $\beta \in \Phi$, $\beta = w \alpha $, where $w \in W$ and $\alpha \in \Delta$ ("$w \alpha$" designates the action of $w$ on $\alpha$). We have
+\begin{equation}
+\langle \beta, \beta \rangle = \langle w \alpha, w \alpha \rangle = \langle \alpha , \alpha \rangle > 0
+\end{equation} Furthermore,
+\begin{equation}
+\sigma_\beta = \sigma_{w \alpha} = w \sigma_\alpha w^{-1} \in W
+\end{equation} and
+\begin{equation}
+\sigma_\beta(\beta) = - \beta \in \Phi
+\end{equation}
+
+2) We have
+\begin{equation}
+\sigma_\alpha (\beta ) = \beta - 2 \frac{\langle \alpha, \beta \rangle}{\langle \alpha , \alpha \rangle} \alpha
+\end{equation} Since $\langle \alpha , \alpha \rangle \le 0$, using the point R.5 of the definition of root system, we obtain $\langle \alpha, \beta \rangle \le 0$.
+
+
+\end{proof}
+
+\begin{lemma}
+If $\alpha \in \Delta$, then $\sigma_\alpha$ permutes with $\Phi^+ \backslash \{ \alpha \}$.
+\end{lemma}
+\begin{proof}
+Let $\beta \in \Phi^+ \backslash \{ \alpha \}$. We have
+\begin{equation}
+\sigma_\alpha (\beta ) = \beta - 2 \frac{\langle \alpha , \beta \rangle }{\langle \alpha, \alpha \rangle} \alpha \in \Phi^+ \backslash \{ \alpha \}
+\end{equation}
+\end{proof}
+
+\begin{theorem}
+If $(\Phi, \Delta)$ is a root system, then $(W, S)$ with $S = \{\sigma_\alpha | \alpha \in \Delta \}$ is a Coxeter system.
+\end{theorem}
+
+This theorem follows directly using Matsumoto theorem and the following result:
+
+\begin{theorem}
+Let $\alpha \in \Delta$ and $w = \sigma_1 \sigma_2 \ldots \sigma_n$ a reduced word, where $\sigma_i \in S$. The following assertions are equivalent:
+\begin{itemize}
+\item 1) $w \alpha < 0$,
+\item 2) $l(w \sigma_\alpha) < l(w)$,
+\item 3) $w \sigma_\alpha = \sigma_1 \ldots \hat{\sigma}_i \ldots \sigma_n$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+1) $\Rightarrow$ 3). We have $\alpha> 0$, $\sigma_n \alpha > 0$, $\sigma_{n-1}\sigma_n \alpha > 0$, $\ldots$, $\sigma_1 \ldots \sigma_n \alpha <0$. There is a $i \in \{1, \ldots, n\}$ such that $\sigma_{i+1} \ldots \sigma_n \alpha > 0$ and $\sigma_i \sigma_{i+1} \ldots \sigma_n \alpha < 0$. Using the lemma, we have that $\sigma_{i+1} \ldots \sigma_n \alpha = \alpha_i$ is a simple root, and, writing
+\begin{equation}
+\alpha =  \underbrace{\sigma_n \sigma_{n-1} \ldots \sigma_{i+1}}_{u} \alpha_i
+\end{equation} we have $\sigma_\alpha = \sigma_{u \alpha_i} = u \sigma_{\alpha_i} u^{-1}$. Hence,
+\begin{equation}
+w \sigma_\alpha = \sigma_1 \ldots \sigma_n \sigma_n \ldots \sigma_{i+1} \sigma_i \sigma_{i+1} \ldots \sigma_n = \sigma_1 \ldots \hat{\sigma}_i \ldots \sigma_n
+\end{equation}
+
+
+3) $\Rightarrow$ 2). This implication is obvious.
+
+2) $\Rightarrow$ 1). We prove the contrapositive. By the point R.5 of the definition of root system, we have $w \alpha > 0$ and so $w(-\alpha) = w \sigma_\alpha (\alpha) < 0$. From 1) $\Rightarrow$ 3) $\Rightarrow$ 2), we get
+\begin{equation}
+\ell (w) = \ell (w \sigma_\alpha \sigma_\alpha) < \ell (w \sigma_\alpha)
+\end{equation}  which achieves the proof.
+
+\end{proof}
+
+Now, we are going to show that a root system can be associated to every Coxeter group. First, recall that given $(W, S)$ a Coxeter system with $S = \{s_1, \ldots, s_n \}$, and $V$ a $\mathbb{R}$-vector space with basis $\{\alpha_1, \ldots, \alpha_n \}$, we can define a symmetric bilinear form as
+\begin{equation}
+\langle \alpha_i , \alpha_j \rangle = \left \{
+\begin{array}{c @{} c}
+    &- \cos \left(\frac{\pi}{m_{ij}} \right) \quad \text{if } m_{ij} < + \infty \\
+    &-1 \quad ~~~~~~~~~~~~~\text{if } m_{ij} = + \infty \\
+\end{array}
+\right.
+\end{equation} 	Writing $\sigma_i = \sigma_{\alpha_i}$, we showed that the map
+\begin{equation}
+W \mapsto GL(V), s_i \to \sigma_i
+\label{correspondance}
+\end{equation} is a homomorphism. Let us define
+\begin{equation}
+\begin{split}
+\Delta &:= \{\alpha_1, \ldots, \alpha_n \} \\
+\Phi &:= \{w \alpha_i | w \in W , \alpha_i \in \Delta \}
+\end{split}
+\end{equation}
+
+\begin{theorem}
+$(\Phi, \Delta)$ is a root system.
+\end{theorem}
+
+The points R.1, R.2, R.3 and R.4 of the definition of a root system are clearly satisfied. The point R.5 is a consequence of the following theorem:
+
+\begin{theorem}
+Let $w \in W$ and $s_i \in S$. We have:
+\begin{itemize}
+\item 1) $\ell (w s_i) > \ell(w)$ $\Rightarrow$ $w \alpha_i > 0$.
+\item 2) $\ell (w s_i) < \ell (w)$ $\Rightarrow$ $w \alpha_i < 0$.
+\end{itemize}
+\label{theorem length}
+\end{theorem}
+
+\begin{proof}
+First, we show that 1) $\Rightarrow$ 2). We have $\ell (w s_i) < \ell (w) = \ell (w s_i s_i)$. Hence $0 < w s_i \alpha_i = w (-\alpha_i) = - w \alpha_i$, which leads to $w \alpha_i <0$.
+
+Now, we prove 1). First, it can be shown for the dihedral group (exercise\footnote{To show the dihedral case, drawing a picture may be useful.}). We now consider the general case. Let $s_i \in S$, $w\in W$, such that $\ell(ws_i) > \ell(w)$. We proceed by induction on $\ell (w)$. For $\ell (w) =0$, this is obvious. For $\ell (w) \ge 1$, let $s \in S$ be such that $\ell (w s) < \ell (w)$. Let $J:= \{s_i, s \} \subset S$. We write
+\begin{equation}
+w = w^J w_J, \quad w^J \in W^J, w_J \in W_J
+\end{equation} with $\ell(w) = \ell (w^J ) + \ell (w_J)$, and $w^J$ is the minimum of $w W_J$. Note that $\ell (w_J) \ge 1$: if $w = w^J$, we have $\ell (w^J s) < \ell (w^J)$, which leads to a contradiction since $W^J$ is the minimum of $w^J W_J$.
+
+\underline{Claim:} $w_J \alpha_i > 0$.
+
+Let us prove this claim. We have $w s_i  = w^J w_J s_i$ and $wJ s_i \in W$. Hence, using the hypothesis, we obtain
+\begin{equation}
+\ell (w) +1 = \ell (w s_i) = \ell (w^J) + \ell (w_J s_i)
+\end{equation} This leads to $\ell (w_J s_i) = \ell (w_J) + 1 > \ell (w)$. Therefore, $w_J \alpha_i > 0$, which proves the claim.
+
+Now, we have
+\begin{equation}
+w_J \alpha_i = a \alpha_i + b \alpha_s
+\end{equation} with $a, b \ge 0$ and
+\begin{equation}
+w \alpha_i = w^J (a \alpha_i + b \alpha_s ) = a w^J \alpha_i + b w^J \alpha_s
+\end{equation} Since $\ell (w_J) \ge 1$, we have $\ell (w^J) < \ell (w)$. Furthermore, since $w^J$ is the minimum of $w W_J$, we have
+\begin{equation}
+\ell (w^J s) > \ell (w^J)  \quad \text{and} \quad \ell (w^J s_i) > \ell (w^J)
+\end{equation} So, by induction, $w^J \alpha_s > 0$, and $w^J \alpha_i > 0$, which leads to $w \alpha_i > 0$.
+
+
+\end{proof}
+
+\begin{corollary}
+We have $\Phi = \Phi^+ \sqcup \Phi^-$.
+\end{corollary}
+
+\begin{corollary}
+The geometric representation $W \mapsto GL(V), s_i \to \sigma_i$ is faithful.
+\end{corollary}
+\begin{proof}
+Let $w \in W$ such that $\sigma(w) = id$. We have $w \alpha_i = \alpha_i > 0$, $\forall i$. Therefore, using theorem \ref{theorem length}, we obtain $\ell (w s_i) > \ell (w)$ $\forall i$, which implies $w = e$.
+\end{proof}
+
+\begin{proposition}
+For $w \in W$, $\ell (w) = $number of positive roots that are sent to negative roots by $w$.
+\end{proposition}
+\begin{proof}
+Let us proceed by induction on $\ell (w)$. For $\ell (w)= 0$, this is obvious. The case $\ell (w) = 1$ also holds using the above lemma. Now, take $\ell (w) > 1$, and let $s_i\in S$ be such that $\ell (x s_i) < \ell (w)$. By induction, there are $\ell (w s_i)$ many $\alpha > 0$ such that $w s_i \alpha_i < 0$. By the above lemma, $s_i \alpha > 0$, unless $ \alpha = \alpha_i$. On the other hand, using theorem \ref{theorem length}, we have $w s_i \alpha_i = - w \alpha_i > 0$. Hence, $\alpha \neq \alpha_i$. So we found $\ell (w s_i)$ many $s_i \alpha > 0$ such that $ws_i \alpha < 0$. Adding $\alpha_i$, we get the right number. If $\beta > 0$, $\beta \neq \alpha_i$, such that $w \beta < 0$, $(w s_i)(s_i \beta) < 0$ and $s_i \beta > 0$. Hence, $s_i \beta$ is one of the many $\alpha$, so $\beta$ is one of many $s_i \alpha$.
+\end{proof}
+
+\begin{remark}
+Let $(W, S)$ a Coxeter system and $T = \{ w s w^{-1} | s \in S, w \in W \}$. Taking \eqref{correspondance} into account and noting that $w \sigma_{\alpha_i} w^{-1} = \sigma_{w \alpha_i}$, we get the following correspondence:
+\begin{equation}
+\{ \text{Algebraic reflections } t\in T \} \leftrightarrow \{\text{Geometric relfections }\sigma_\beta \} \leftrightarrow \{\text{Positive roots} \}
+\end{equation}
+\end{remark}
+
+\begin{proposition}
+Let $w \in W$, $t \in T$ and $\alpha$ the corresponding positive root. We have:
+\begin{itemize}
+\item 1) $\ell (wt) > \ell (w)$ $\Rightarrow$ $w \alpha > 0$,
+\item 2) $\ell (wt) < \ell (w)$ $\Rightarrow$ $w \alpha < 0$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+First, we show that 2) $\Rightarrow$ 1). We have $\ell (w t) < \ell (w) = \ell (w t t)$. Hence $0<x t \alpha = w (\alpha)$, and so $w \alpha < 0$.
+
+Now we prove 2). Suppose that $\ell (wt) < \ell (w)$. Let $w = s_1 \ldots s_k$ reduced, with $s_i \in S$. By the exchange property, we have
+\begin{equation}
+t = \underbrace{s_k s_{k-1} \ldots s_{i+1}}_{u} s_i \underbrace{s_{i+1} \ldots s_k}_{u^{-1}}
+\end{equation} Therefore, $\alpha = u \alpha_i$, where we use the correspondence $\alpha_i \leftrightarrow s_i$. Now, $w \alpha = u u \alpha_i = s_1 s_2 \ldots s_i \alpha_i$. But $\ell (s_1 s_2 \ldots s_i s_i) < \ell (s_1 s_2 \ldots s_{i-1} )$. By theorem \ref{theorem length}, we deduce $s_1 s_2 \ldots s_i \alpha_i < 0$.
+\end{proof}	

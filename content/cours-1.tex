@@ -1,81 +1,83 @@
-\chapter{Introduction}
+\chapter{Preliminaries}
 
-This chapter is based on the first chapter of \cite{magnusCombinatorialGroupTheory2004}. This chapter will be an introduction of what groups are and how they are generated.\\
+This chapter is based on the first chapter of \cite{magnusCombinatorialGroupTheory2004}. This constitutes a recap of what groups are and how they are generated.\\
 
-We recall in group theory that a group $(G,\cdot)$ is a non-empty set $G$ of elements with a binary operation $\cdot$ for which the next axioms are satisfied:
+We recall that a group $(G,\cdot)$ is a non-empty set $G$ of elements equipped with a binary operation $\cdot\qq :\qq  G \times G \rightarrow G$ for which the next properties are satisfied :
 
 \begin{itemize}
-  \item \textbf{Closure:} For all $a,b \in G$, $c$ such that $a\cdot b = c$ implies that $c \in G$.
-
-  \item \textbf{Associativity:} The operation $\cdot$ is associative, which means that for any elements $a,b,c \in G$:
+  \item \textbf{Associativity:} The operation $\cdot$ is associative, which means that for any elements $a,b,c \in G$ :
     $$(ab)c = a(bc)$$
 
-  \item \textbf{Identity element:} There exists an element of $G$ noted $1$ for which:
+  \item \textbf{Identity element:} There exists an element of $G$ noted $e$ for which :
 
-  $$a\cdot 1 = 1\cdot a = a$$
+  $$a\cdot e = e\cdot a = a$$
 
-  \item \textbf{Inverse element:} For any $a \in G$ there exists an \textit{element} $a^{-1}$ for which:
-  $$ a\cdot a^{-1} = a^{-1} \cdot a = 1 $$
+  \item \textbf{Inverse element:} For any $a \in G$ there exists an \textit{element} $a^{-1}$ for which :
+  $$ a\cdot a^{-1} = a^{-1} \cdot a = e $$
 \end{itemize}
 
-We know two ways of defining a group; defining a \textit{symmetry} of a set and if it is presented by generators and relators.
+There are a lot of ways to define groups. However, the two most ``common" ways in the everyday mathematics is to consider set of \textit{symmetries} or to give an explicit presentation of the group in terms of generators and relations.
 
 \section{Symmetric groups}
 
 \begin{definition}[Symmetric group]
-The symmetric group on the set $G$ is the group whose elements are permutations of the elements of $G$ and its operation is the permutation composition. If $G = \{1,\dots, n$ we call it $S_n$. \cite{saganSymmetricGroup2001}.
+The symmetric group on the set $M$ is the group whose elements are permutations of the elements of $M$ and its operation is the permutation composition. If $M = \{1,\dots, n \}$ we call it $S_n$. \cite{saganSymmetricGroup2001}.
 \end{definition}
 
 \begin{proposition}$S_n$ has order $n!$ and every group $G$ of order $n$ is a subgroup of $S_n$.
 \end{proposition}
 
-\subsection{Permutations}
+%\subsection{Permutations}
 
-Now that we know what symmetric groups are, we know that it's mainly based in permutations. In this subsection we define every operation on permutations used in these groups.
+Symmetric groups are based on the behave of permutations and as we explain, there are a very important example of groups since every group is a subgroup of such. The purpose of this subsection is to define the operation on permutations.
 
 
 \begin{definition}[Two-line notation]
-Given $i \in \{1,\dots,n\}$ and $\pi$ the permutation function we represent a permutation listing every elements of the set in two lines where in the first line we have the elements and the second one its image in the $\pi$ function:
+Given a permutation function $\pi$ of ${1,...,n}$, we represent it by listing every elements of the set ${0,...,n}$ in two lines, where the first line represent the starting elements, and the second one, their images through the function $\pi$ :
 
 \begin{equation}
   \begin{pmatrix}
-   1 & 2 & 3 & 4 & 5 & \dots & i \\
-   \pi(1) & \pi(2) & \pi(3) & \pi(4) & \pi(5) & \ & \pi(i)
+   1 & 2 & 3 & 4 & 5 & \dots & n \\
+   \pi(1) & \pi(2) & \pi(3) & \pi(4) & \pi(5) & \ & \pi(n)
  \end{pmatrix}
 \end{equation}
 
 \end{definition}
 
 
-\begin{definition}[Cycle notation]Given $i \in \{1,\dots,n\}$ and $\pi$ the permutation function, the elements of the sequence $i, \pi(i), \pi^2(i),\dots$ cannot be distinct. Taking the power $p$ such that $\pi^p(i) = i$, we can note the permutation as the cycle:
+\begin{definition}[Cycle notation]Given $i \in \{1,\dots,n\}$ and $\pi$ a permutation function of $\{1,\dots,n\}$, the elements of the sequence $i, \pi(i), \pi^2(i),\dots$ cannot all be distinct due to the pigeon hole principle. In particular, there must exists a power $p \in \mathbb{N}$ such that $\pi^p(i) = i$. This allow us to write the permutation as a product of cycles of the type :
 
 \begin{equation}
   (i, \pi(i), \pi^2(i), \dots, \pi^{p-1}(i))
 \end{equation}
 \end{definition}
 
-Which means that given a cycle $(i,j,k)$, the element $i$ is send to $j$, $j$ is sent to $k$ and $k$ is sent to $i$, cyclically, e.g. the permutation $23145$ of $n = \{1,2,3,4,5\}$ can be written with cycle notation as $(1,2,3)(4)(5)$. Remark that every element of the set has to be used.
+This means that, given a cycle $(i,j,k)$, the element $i$ is sent to $j$, $j$ is sent to $k$ and $k$ is sent to $i$, cyclically, e.g. the permutation $23145$ of $ \{1,2,3,4,5\}$ can be written with cycle notation as $(1,2,3)(4)(5)$. Remark that every element of the set has to be used.
 
 \section{Presentation of groups}
 \label{sec:pres_group}
 
-In this section we show how a group can be defined by generators and relators:
+In this section we show how a group can be defined by generators and relations :
 
 \begin{definition}
   A group can be defined by:
   \begin{equation}
     Gr \cong \langle G | R\rangle
   \end{equation}
-
-  being $G = \{a,b,c,\dots\}$ the set of \emph{generators} and $R = \{A,B,C,\dots\}$ the set of \emph{relators} or \emph{relations} such that every $X \in R$ is a word in $(G\cup G^{-1})^*$ such that $X = 1$.
+where $G = \{a,b,c,\dots\}$ is the set of \emph{generators} and $R = \{A,B,C,\dots\}$ is the set of \emph{relations} such that every $X \in R$ is a word in $(G\cup G^{-1})^*$ satisfying $X = 1$.
 \end{definition}
 
-For example, the dihedral group $D_n$ has the next presentation where $q$ is a rotation and $r$ a reflection:
+\begin{example}
+The dihedral group $D_n$ can be presented in the following way; where $q$ is a rotation and $r$ a reflection :
 
 $$D_n \cong \langle \{q,r\} | \{r^2, q^n, rqrq\} \rangle$$
+\end{example}
+
 
 \chapter{Coxeter groups}
-In this chapter, we explain the interest and motivation of coxeter groups by analysing a symmetric group. The main example of this chapter will be the symmetric group $S_3$. This group can be defined in three ways.
+
+\section{Motivations}
+Let us explain the interest and motivation of Coxeter groups by analysing the symmetric group $S_3$, which is a standard example of Coxeter group. This group can be defined in three ways.
 
 \begin{figure}
   \begin {center}
@@ -183,31 +185,31 @@ In this chapter, we explain the interest and motivation of coxeter groups by ana
 \end{figure}
 
 \begin{itemize}
-  \item Combinatorial: Given a cyclic noted permutation we can represent it as a \emph{wiring diagram}.
+  \item Combinatorially : Given a cyclic permutation, we can represent it as a \emph{wiring diagram}. Some examples of permutations of $123$ are given in the wire diagrams \ref{fig:wiring} and \ref{fig:wiring_23}. Their composition is given by the wire diagram \ref{fig:wiring_compo}.
 
-  For example, for the permutation $123$ we have the following wire diagram:
-  \item Algebraic: Presentation of groups as seen in section \ref{sec:pres_group}.
+
+
+
+  \item Algebraically : Presentation of groups as seen in section \ref{sec:pres_group}.
   \begin{equation}\label{equation donnant la form explicite de pi}
   \begin{split}
-  S_3 \cong \langle \{s_1, s_2\} | s_1s_2s_1 &= s_2s_1s_2 , s_1^2 = e, s_2^2 = e,\\
+  S_3 \cong \langle \{s_1, s_2\} | \{ s_1s_2s_1 &= s_2s_1s_2 , s_1^2 = e, s_2^2 = e,\\
    &(s_1s_2)^3 = s_1s_2s_1s_2s_1s_2 = e\} \rangle
   \end{split}
   \end{equation}
 
-  \item Geometrical: We can represent geometrically a coxeter group by reflections. In figure \ref{fig:geoS3} you can see a geometrical representation of $S_3$ where $s_1$ and $s_2$ are the generators of $S_3$ and also reflections on the plane.
-
-  If you see the figure you can remark that $s_1s_2s_1 = s_2s_1s_2$, $s_1^2 = e$ and $s_2^2$; $S_3$ is a coxeter group.
+  \item Geometrically : We can represent geometrically a coxeter group by reflections. In figure \ref{fig:geoS3} we can see a geometrical representation of $S_3$ where $s_1$ and $s_2$ are the generators of $S_3$ and also reflections on the plane. Notice that $s_1s_2s_1 = s_2s_1s_2$, $s_1^2 = e$ and $s_2^2$; $S_3$ is a coxeter group.
 \end{itemize}
 
 \section{Coxeter groups}
 
-In this section we define the mathematical objects that represent coxeter groups. $S$ being a finite set:
+In this section we define the notion of Coxeter groups.
 
-\begin{definition}
-  A \emph{coxeter matrix} $m : S\times S \to \{1,2,\dots,\infty\}$ such that:
+\begin{definition} Let $S$ be a finite set.
+  A \emph{Coxeter matrix} is a map $m : S\times S \to \{1,2,\dots,\infty\}$ such that:
   \begin{enumerate}
-    \item $m(s,s') = 1 \ \ \forall s \in S$
-    \item $m(s,s') = m(s', s) \ \ \forall s \in S$
+    \item $m(s,s) = 1 \ \ \forall s \in S$
+    \item $m(s,s') = m(s', s) \ \ \forall s,s' \in S$
     \item $m(s,s') > 1\ \ \ \text{if}\  s \neq s'$
   \end{enumerate}
 \end{definition}
@@ -216,17 +218,16 @@ In this section we define the mathematical objects that represent coxeter groups
   A \emph{coxeter diagram} is a graph where the set of vertices are the elements of $S$ and
   the labelled edges are such that:
   \begin{enumerate}
-    \item if $m(s,s') = 2$:\ \dynkin[labels={s},label macro/.code={#1}]{A}{1}
+    \item if $m(s,s') = 2$ : \ \dynkin[labels={s},label macro/.code={#1}]{A}{1}
                       \dynkin[labels={s'},label macro/.code={#1}]{A}{1}
-    \item if $m(s,s') = 3$:  \dynkin[labels={s,s'},label macro/.code={#1}]{A}{2}
-    \item if $m(s,s') \geq 4$: \dynkin[labels={s,s'},label macro/.code={#1}]{A}{2} where the label of the edge is $m(s,s')$.
+    \item if $m(s,s') = 3$ :   \dynkin[labels={s,s'},label macro/.code={#1}]{A}{2}
+    \item if $m(s,s') \geq 4$ : \dynkin[labels={s,s'},label macro/.code={#1}]{A}{2} where the label of the edge is $m(s,s')$.
   \end{enumerate}
-
-  where $m$ is the coxeter matrix.
+where in this definition, $m$ is the Coxeter matrix.
 \end{definition}
 
 \begin{example}
-	If we have a coxeter matrix $m$:
+	If we have a Coxeter matrix $m$:
     \begin{equation}
       m =
     \begin{bmatrix}
@@ -235,8 +236,7 @@ In this section we define the mathematical objects that represent coxeter groups
     2 & 4 & 1\\
     \end{bmatrix}
     \end{equation}
-
-  where the line or column $i$ corresponds to the generator $s_i$ of the coxeter group. Then the related coxeter diagram can be drawn like this:
+where the line or column $i$ corresponds to the element $s_i \in S$. Then the related Coxeter diagram can be drawn like this:
 
   \center{\dynkin[Coxeter, labels={s_1, s_2, s_3}]{B}{3}}
 \end{example}
@@ -247,24 +247,23 @@ Given the definition of $m$, we can now define formally a coxeter group.
 A \emph{coxeter group} is a group with the following presentation:
 
 \begin{equation}
-  \langle S\  |\  (s, s')^{m(s,s')} = e, \forall s, s' \in S\} \rangle
+  \langle S\  |\{  (ss')^{m(s,s')} = e, \forall s, s' \in S\} \rangle
 \end{equation}
-where $S$ si a group and $m$ the coxeter matrix with $m(s,s') < \infty$.
+where $S$ si a set and $m$ the coxeter matrix with $m(s,s') < \infty$.
 
 \end{definition}
 
 \begin{example}
-  The symmetric group $S_n$ can be represented with the following coxeter diagram:
+  The symmetric group $S_n$ is a Coxeter group that can be represented by the following Coxeter diagram:
   \begin{center}
     \dynkin[Coxeter, labels={s_1, s_2, s_{n-1}, s_n}, edge length=.50cm]{A}{}
   \end{center}
-
-  because for every $i < n$, we have that $s_is_{i+1}s_is_{i+1} = e$, so $(s_is_{i+1})^2 = e$, which means that
+In fact, for every $i < n$, we have that $s_is_{i+1}s_is_{i+1} = e$, so $(s_is_{i+1})^2 = e$, which means that
   $m(s_i, s_{i+1}) = 2$ for every $i < n$.
 \end{example}
 
 \begin{definition}
-  The tuple $(W,S)$ is a coxeter system where $W$ is a coxeter group and $S$ a group of generators.
+  The pair $(W,S)$ is a Coxeter system where $W$ is a Coxeter group and $S$ a group of generators.
 \end{definition}
 
 \begin{figure}
@@ -292,16 +291,16 @@ where $S$ si a group and $m$ the coxeter matrix with $m(s,s') < \infty$.
 \label{fig:wiring_snB}
 \end{figure}
 
-We introduce the hyperoctahedral group $S_n^B$ being the group of signed permutations of $\big[n\big] := \{1, 2, \dots, n\}$. The group set is $\{1,2,\dots,m,\bar{1}, \bar{2},\dots, \bar{n}\}$. We have a new generator $t$, that will change the sign of an element. In figure \ref{fig:wiring_snB} you can see an example of permutations withing this group. This is a coxeter group and its diagram is:
+We introduce the hyperoctahedral group $S_n^B$ as being the group of signed permutations of $\big[n\big] := \{1, 2, \dots, n\}$. The group set is $\{1,2,\dots,m,\bar{1}, \bar{2},\dots, \bar{n}\}$. We have a new generator $t$, that will change the sign of an element. In figure \ref{fig:wiring_snB} we can see an example of permutation within this group. This is a Coxeter group and its diagram is:
 
 \begin{center}
   \dynkin[Coxeter, labels={s_n, s_{n-1}, s_{n-2},s_2,s_1, t}, edge length=.50cm, gonality=n ]{B}{}
 \end{center}
 
-Given a coxeter system $(W,S)$, we can then define $T := \{wsw^{-1} |\ s\in S, w \in W\} \subseteq W$ where $s$ are simple reflections. Now we can define $\pi$.
+Given a Coxeter system $(W,S)$, we can define $T := \{wsw^{-1} |\ s\in S, w \in W\} \subseteq W$ where $s$ are simple reflections.
 
 \begin{definition}
-  Given $W \to S_T^B$ and $w \to \pi_w$ with $t\in T$ and $s\in S$:
+  Given $W \to S_T^B : w \to \pi_w$, $t\in T$ and $s\in S$:
 
   \begin{equation}
     \pi_s(t) := \left \{
@@ -311,7 +310,6 @@ Given a coxeter system $(W,S)$, we can then define $T := \{wsw^{-1} |\ s\in S, w
     \end{array}\right.
   \end{equation}
 \end{definition}
-
 This application is a bijection because its inverse is itself ($\pi_s(\pi_s(s)) = s$):
 
 \begin{equation}
@@ -321,7 +319,6 @@ This application is a bijection because its inverse is itself ($\pi_s(\pi_s(s)) 
       \pi_s(tsts) \quad &\text{if } t \neq s \\
   \end{array}\right.
 \end{equation}
-
 We clearly see that $\pi_s(sts) = s(sts)s = t$ and $\pi_s(-s) = -\pi_s(s) = -s$.
 
 %\begin{equation}

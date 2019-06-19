@@ -1,12 +1,12 @@
 \section{Combinatorial representation}
 
-As explained in the first part of this chapter, coxeter groups can also be viewed as combinatorial objects. In this section, we recall some concepts of combinatorics.
+As explained in the first part of this chapter, Coxeter groups can also be viewed as combinatorial objects. In this section, we recall some concepts of combinatorics.
 
 \begin{definition}
   A poset is a tuple $(P, \leq)$ where $P$ is a set and $\leq$ is a binary relation such that:
 
   \begin{itemize}
-    \item $x \leq y\ \ \ \forall x,y \in P$
+    \item $x \leq x\ \ \ \forall x \in P$
     \item if $x \leq y$ and $y \leq x$ then $x = y$
     \item if $x \leq y$ and $y \leq z$ then $x \leq z$
   \end{itemize}
@@ -33,19 +33,17 @@ As explained in the first part of this chapter, coxeter groups can also be viewe
 \label{fig:hasse}
 \end{figure}
 
-A poset can be represented as a hasse diagram, as viewed in figure \ref{fig:hasse}.
+A poset can be represented as a Hasse diagram, as shown in the example of figure \ref{fig:hasse}.
 
 \begin{definition}
-Let $(W,S)$ be a coxeter system and $T = \{wsw^{-1} | w \in W, s \in S\}$ a set of reflections. $u, w \in W$ define a function $u \to v$ if $l(v) > l(u)$ and $v = ut$ for some $t \in T$.
-
-We define $w \leq v$ if there exist:
+Let $(W,S)$ be a Coxeter system and $T = \{wsw^{-1} | w \in W, s \in S\}$ a set of reflections. Two elements $u, w \in W$ define a function $u \to v$ if $l(v) > l(u)$ and $v = ut$ for some $t \in T$.
+We define an order $w \leq v$ if there exists:
 
 \begin{equation}
 u \to u_1 \to u_2 \to \dots \to u_k = v
 \end{equation}
 \end{definition}
-
-A Bruhat order is a partial order on the elements of a Coxeter group. By using the relation defined in the previous definition, we can have a bruhat order as shown in figure \ref{fig:bruhat}.
+A Bruhat order is a partial order on the elements of a Coxeter group. By using the relation defined in the previous definition, we can have a Bruhat order as shown in figure \ref{fig:bruhat}.
 
 \begin{figure}
 \begin{center}
@@ -78,7 +76,7 @@ A Bruhat order is a partial order on the elements of a Coxeter group. By using t
 
 
 \begin{theorem}
-  Let $u,v \in S_n$, $u \leq v$ if and only if the intersection degree of $u$ is $\leq$ then the one of $v$.
+  Let $u,v \in S_n$, $u \leq v$ if and only if the intersection degree of $u$ is $\leq$ than the one of $v$.
 \end{theorem}
 
 \begin{example}
@@ -95,22 +93,17 @@ A Bruhat order is a partial order on the elements of a Coxeter group. By using t
 \end{example}
 
 \begin{theorem} [Subword property]
-  Let $v = s_1s_2\dotss_q$ reduced word for $v \in W$. Then $u \leq v$ if and only if $u = s_{i_1}s_{i_2} \dots s_{i_k}$ reduced for some $1 \leq i_1 \leq i_2 \leq \dots \leq i_k \leq q$.
+  Let $v = s_1s_2\dots s_q$ reduced word for $v \in W$. Then $u \leq v$ if and only if $u = s_{i_1}s_{i_2} \dots s_{i_k}$ reduced for some $1 \leq i_1 \leq i_2 \leq \dots \leq i_k \leq q$.
 \end{theorem}
 
 \begin{proof}
 We first prove the \emph{if} part of the theorem. Assume $u \to v$, so $v = ut$ and $l(v) > l(u) = l(utt) = l(vt)$ for some $t \in T$.
-
 By the exchange property:
-
 \begin{equation}
 u = vt = s_1s_2\dots \hat{s_i} \dots s_q
 \end{equation}
-
 We omit factors iteratively until we have what we want.\\
-
 Second, we prove the \emph{only if} part of the theorem by induction on $l(v) - l(u)$.
-
 If $l(v)-l(u) = 1$ and we have
 \begin{equation}
   u = s_1 \dots \hat{s_i} \dots s_q
@@ -119,7 +112,6 @@ with
 \begin{equation}
   t = s_q \dots s_i \dots s_q
 \end{equation} then $ut = v$ which means that $u \to v$.
-
 If $l(v) - l(u) > 1$ and we have
 \begin{equation}
   u = s_1 \dots \hat{s_{a_1}} \dots \hat{s_{a_2}} \dots \hat{s_{a_k}} \dots s_q
@@ -132,18 +124,12 @@ and
 \begin{equation}
   ut = s_1 \dots \hat{s_{a_1}} \dots \hat{s_{a_2}} \dots s_{a_k} \dots s_q
 \end{equation}
-
-
 We could have two cases:
-
 \begin{itemize}
   \item Case $l(ut) > l(u)$: \\
-
-  then $l(ut) = l(u) +1$,. so $u \to ut$. $l(v)-l(ut) -1$. By induction $ut \leq v$, so $u \leq v$.
-
+  then $l(ut) = l(u) +1$, so $u \to ut$. $l(v)-l(ut) -1$. By induction $ut \leq v$, so $u \leq v$.
   \item Case $l(ut) < l(u)$: \\
-
-  this will be proved impossible by contradiction. By exchange we have
+ this will be proved impossible by contradiction. By exchange we have
   \begin{equation}
     ut = s_1 \dots \hat{s_{a_1}} \dots \hat{s_{i}} \dots \hat{s_{a_{k-1}}} \dots s_{a_{k}} \dots s_q
   \end{equation}
@@ -151,7 +137,7 @@ We could have two cases:
   \begin{equation}
     t = s_q \dots s_1 \dots s_q
   \end{equation}
-then:
+Then,
   \begin{equation}
     \begin{split}
       vtt &= s_1 \dots s_q (s_q \dots s_{a_k} \dots s_q)(s_q \dots s_i \dots s_q)\\
@@ -167,8 +153,7 @@ then:
       &= s_1 \dots \hat{s_{a_1}} \dots \hat{s_i} \dots s_{a_k} \dots s_q
     \end{split}
   \end{equation}
-
-  You can see that we omit elements to the left of $a_k$, which contradicts the minimality of $a_k$. This proves that the case when $l(ut) < l(u)$ is impossible. Thus, we have proved the first case true which finishes the proof. \qed
+You can see that we omit elements to the left of $a_k$, which contradicts the minimality of $a_k$. This proves that the case when $l(ut) < l(u)$ is impossible. Thus, we have proved the first case true which finishes the proof. \qed
 
 \end{itemize}
 \end{proof}
@@ -193,29 +178,23 @@ Let $v = s_1 \dots s_q$ and $l(v) = q$, $u \leq v$, $l(v) - l(u) = k$ so $l(u) =
 \begin{equation}
   u_1 = s_i \dots \hat{s_{a_k}} \dots s_q = u\underset{t}{\underbrace{s_q \dots s_{a_k} \dots s_q}}
 \end{equation}
-
 We have then $l(u_1) = l(ut) = l(u)+1$, so $u \to u_1$ which means that $u \leq u_1$. \qed
 \end{proof}
 
 \begin{theorem}[Lifting property]
-  If $u, v \in W$ and $s \in S$ with $u \leq w$, $u \leq sw$ and $su \leq w$.
+  If $u, v \in W$ and $s \in S$ with $u \leq w$, then $u \leq sw$ and $su \leq w$.
 \end{theorem}
 \begin{proof}
 Take $sw = s_1 \dots s_q$ in a reduced form.
-
-As $sw \leq w$, $w = ss_1\dots s_q$ is also reduced.
-
-As $u \leq w$, $u$ is a subword of $ss_1 \dots s_q$. If $u$ is a subword of $s_1 \dots s_q$, which corresponds to the theorem. If not,
+Since $sw \leq w$, $w = ss_1\dots s_q$ is also reduced.
+As $u \leq w$, $u$ is a subword of $ss_1 \dots s_q$. If $u$ is a subword of $s_1 \dots s_q$, this corresponds to the theorem. If not,
 \begin{equation}
   u = ss_{i_1} \dots s_{i_r}
 \end{equation}
-
 is reduced with
-
 \begin{equation}
   1 \leq i_1 \leq i_2 \leq \dots \leq i_r \leq q
 \end{equation}
-
 So $su = s_{i_1} \dots s_{i_2}$, which is a contradiction as $u \leq su$. The proof of $su \leq w$ is left to the reader. \qed
 \end{proof}
 
@@ -233,11 +212,11 @@ So $su = s_{i_1} \dots s_{i_2}$, which is a contradiction as $u \leq su$. The pr
     \item Case $sw \leq w$: again by the lifting property, $v \leq w$ and $u \leq w$.
   \end{itemize}
 
-  This proves that there exists always an element that respects the lemma, either $w$ or $sw$. \qed
+  This proves that there always exists an element that respects the lemma, either $w$ or $sw$. \qed
 \end{proof}
 
 \begin{corollary}
-If $W$ is finite there is an unique maximal $w_0 \in W$.
+If $W$ is finite, there is an unique maximal $w_0 \in W$.
 \end{corollary}
 
 \begin{example}

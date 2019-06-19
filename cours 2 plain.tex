@@ -150,7 +150,7 @@
 		 \mbox{sgn}_w(t)\qq=\qq (-1)^{\# \{1\leq l\leq k\qq :\qq t=s_k...s_{l-1}s_l s_{l-1}...s_k\}}
 		\end{equation}
 		As we will show just after this sign function does not depend on the writing of $w\in W$ in the coxeter system $(W,S)$. But first, let us get some intuition about what this sign function is counting, by looking to the case of $S_n$ : aaaaaaaaaaa\\
-		
+
 		We are now going to use equation \ref{equation donnant la form explicite de pi} to prove that the sign function does not depend on the writing of $w\in W$ in the Coxeter system $(W,S)$ and  therefore that $\pi$ is a well defined homomorphism. In order to show this, it suffices to show that every relations we had in $(W,S)$ are satisfied by their image in $S^B_T$. In other words, we want to show that taking two elements $s,s'\in S$ we have that :
 		\begin{equation}\label{equation provant que les relations sont preserves par pi}
 		(\pi_s\circ \pi_{s'})^{m(s,s')}\qq=\qq \mbox{Id}_{S^B_T}
@@ -165,17 +165,17 @@
 		\end{equation}
 		which is even since for every $l\leq m(s,s')/2$ we have :
 		\begin{itemize}
-			\item if $ m(s,s')$ is even : 
+			\item if $ m(s,s')$ is even :
 			\begin{equation}
-			t\qq= \underset{2l-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}=\underset{2l-1 + m(s,s') \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}= \underset{2(l+m(s,s')/2)-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}} 
+			t\qq= \underset{2l-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}=\underset{2l-1 + m(s,s') \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}= \underset{2(l+m(s,s')/2)-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}
 			\end{equation}
 			\item  if $ m(s,s')$ is odd :
 			\begin{equation}
-			t\qq=\underset{2l-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}=\underset{2l-1 +m(s,s') \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}= \underset{2((m(s,s')-1)/2+l)+1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}} 
-			\end{equation} 
+			t\qq=\underset{2l-1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}=\underset{2l-1 +m(s,s') \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}= \underset{2((m(s,s')-1)/2+l)+1 \mbox{ characters}}{\underbrace{s'ss'...s'ss'}}
+			\end{equation}
 		\end{itemize}
 	In particular, this implies that if one index is counted below $m(s,s')/2$ then there exists an other index counted strictly bigger than $m(s,s')/2$ and vis versa. Thus the set must be even and the sign must be $+$. In particular, this proves equation \eqref{equation provant que les relations sont preserves par pi} and $\pi$ is a well defined morphism.
-	
+
 	It last to show that the extension of $\pi$ is injective. Let $u,v\in W$ be such that $\pi_u=\pi_v$ then, we have that :
 	\begin{equation}
 	\pi_{uv^{-1}}\qq=\qq \pi_u\circ \pi_{v^{-1}}\qq=\qq \mbox{Id}_{S_T^B}\qq=\qq  \pi_e
@@ -190,7 +190,7 @@
 	On the other hand, $\mbox{sgn}_w(s_k)=-1$ because :
 	\begin{equation}
 	\{1\leq l\leq k\qq :\qq t=s_k...s_{l-1}s_l s_{l-1}...s_k\}\qq=\qq \{k\}
-	\end{equation} 
+	\end{equation}
 	Indeed, for $l=k$ we have $s_k=s_k$. But if $l\not=k$ and if we had :
 	\begin{equation}
 	s_k=\qq s_k..s_l..s_k
@@ -214,7 +214,7 @@
 	\end{equation}
 	Which is a contradiction due to the presence of a sign.\qed
 	\end{proof}
-	We are now going to define the notions of \tg{parity} and \tg{length} of an element in a Coxeter group. 
+	We are now going to define the notions of \tg{parity} and \tg{length} of an element in a Coxeter group.
 	\begin{definition}
 		Let $(W,S)$ be a Coxeter system, and let $w\in W$, then we say that $w=s_1...s_k$ $(s_l\in S)$ is :
 		\begin{itemize}
@@ -226,7 +226,7 @@
 \begin{remark}
 	As every relations in a Coxeter group involve an even number of $s\in S$ we see that the parity of an element $w\in W$ does not depend on its writing in $W$.
 \end{remark}
-The set of even elements of a Coxeter system $(W,S)$ is a subgroup of $W$ called the \tg{alternating} subgroup. 
+The set of even elements of a Coxeter system $(W,S)$ is a subgroup of $W$ called the \tg{alternating} subgroup.
 \begin{remark}
 	When $S_n$ is seen as a Coxeter group with $S=\{s_1...s_{n-1}\}$ and the Coxeter matrix $m(s_i,s_{i+1})=3$ and $m(s,s')=2$ for every other couple of the type $(s,s')\not=(s,s)$, it is quite easy to remark that the two notions of alternating group does coincide and therefore that this appellation is well chosen.
 \end{remark}
@@ -260,16 +260,16 @@ Before proving this thorem, we focus our attention on some lemma :
 	\end{split}
 	\end{equation}
 	From which we conclude that $l(tw)\leq k-1\qq <\qq k=l(w)$ and the first implication is proved.
-	
+
 	Conversely, let's suppose that $l(tw)<l(w)$ then, as $tt=e$ we have that :
 	\begin{equation}
-	l(tw)\qq <\qq l(ttw)\qq \Rightarrow l(ttw)\not<l(tw) 
-	\end{equation} 
+	l(tw)\qq <\qq l(ttw)\qq \Rightarrow l(ttw)\not<l(tw)
+	\end{equation}
 	Therefore, using the first implication of the Lemma we obtain by taking $\tilde{w}=tw$ that :
 	\begin{equation}
 	\mbox{sgn}_{\tilde{w}^{-1}}(t)\qq=\qq \mbox{sgn}_{w^{-1}t}(t)\qq =\qq+1
 	\end{equation}
-	Thus, 
+	Thus,
 	\begin{equation}
 	\pi_{(tw)^{-1}}(t)\qq=\qq +1 \qq (tw)^{-1}\qq t\qq(tw)\qq=\qq w^{-1}tw
 	\end{equation}
@@ -288,7 +288,7 @@ Before proving this thorem, we focus our attention on some lemma :
 	as by the minimality, it can not be true for some index $l\leq k$ that $t=s_1...s_{l-1}s_l s_{l-1}...s_1$ and as if it was true for some index $l= k+1+l'$ with $l'>0$ we would have that  :
 	\begin{equation}
 	t\qq=\qq s_1s_2...s_kss_k...s_{k-l'+1}s_{k-l'}s_{k-l'+1}...s_kss_k...s_2s_1
-	\end{equation} 
+	\end{equation}
 	Therefore, by multiplying both sides by $s_1s_2...s_ks$ from the right and by $ss_k...s_2s_1$ from the left, we would obtain that :
 	\begin{equation}
 	s\qq=\qq s_k...s_{k-l'+1}s_{k-l'}s_{k-l'+1}...s_k
@@ -311,7 +311,7 @@ Before proving this thorem, we focus our attention on some lemma :
 	\end{split}
 	\end{equation}
 	And we finally conclude that $\mbox{sgn}_{w^{-1}}(t)=-1$. \qed
-	
+
 \end{proof}
 As a Corollary we have the following lemma :
 \begin{lemma}[The exchange property]
@@ -321,7 +321,7 @@ As a Corollary we have the following lemma :
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	By the previous lemma, we know that $\mbox{sgn}_{w^{-1}}(t)\qq=\qq -1$. Therefore, we know there exists an index $1\leq l\leq k$ such that $tw\qq=\qq s_1s_2...\hat{s_l}... s_k$.\qed 
+	By the previous lemma, we know that $\mbox{sgn}_{w^{-1}}(t)\qq=\qq -1$. Therefore, we know there exists an index $1\leq l\leq k$ such that $tw\qq=\qq s_1s_2...\hat{s_l}... s_k$.\qed
 \end{proof}
 \begin{lemma}\label{les equivalences pour tw}
 	Let $(W,S)$ be a Coxeter system and let $w=s_1s_2...s_k\in W$, with $k=l(w)$ and let us take some $t\in T$. Then, the following are equivalent :
@@ -336,19 +336,19 @@ Moreover, such an index $l$ is uniquely determined.
 	By Lemma \ref{le lemme de la longueur de tw} we already know that $(1)$ implies $(2)$. Furthermore, the equivalence between $(2)$ and $(3)$ is a tautology. Let us prove that $(2)$ implies $(1)$. Indeed, if $tw\qq=\qq s_1...\hat{s_l}...s_1$ for some $1\leq l\leq k$ then :
 	\begin{equation}
 	l(tw)\qq \leq \qq k+1\qq <\qq k \qq=\qq l(w)
-	\end{equation} 
-	which is $(1)$. It last to show that this $l$ appearing in property $(2)$ and $(3)$ is unique under the hypothesis that $k=l(w)$. Let us define $t_i=s_1s_2...s_i...s_1$ for all $1\leq i\leq k$. Then, we want to show that  $t_i\not=t_j$ for every $i\not=j$. Let us reason by contradiction and suppose the contrary. In other words, let us suppose that there exists some indices $i<j$ such that $t_i=t_j$. Then, 
+	\end{equation}
+	which is $(1)$. It last to show that this $l$ appearing in property $(2)$ and $(3)$ is unique under the hypothesis that $k=l(w)$. Let us define $t_i=s_1s_2...s_i...s_1$ for all $1\leq i\leq k$. Then, we want to show that  $t_i\not=t_j$ for every $i\not=j$. Let us reason by contradiction and suppose the contrary. In other words, let us suppose that there exists some indices $i<j$ such that $t_i=t_j$. Then,
 	\begin{equation}
 	\begin{split}
 	w\qq&=\qq t_it_j\qq w\\
 	&=\qq t_is_1...\hat{s_j}...s_k\\
 	&=\qq s_1...\hat{s_i}...\hat{s_j}...s_k
 	\end{split}
-	\end{equation} 
+	\end{equation}
 	As $i$ was less than $j$. But this is a contradiction with the exchange property applied to $t=t_it_j$. Therefore we needed that $t_i\not=t_j$ for every $i\not=j$. In particular $l$ must be unique.
-	\qed 
+	\qed
 \end{proof}
-We are now ready to prove theorem \ref{theorem sur le calcul des longueurs}. 
+We are now ready to prove theorem \ref{theorem sur le calcul des longueurs}.
 \begin{proof}
 	Let $w=s_1s_2...s_k$ with $k=l(w)$, then $w^{-1}=s_k...s_1$ and due to the previous lemma, we know that :
 	\begin{equation}
@@ -359,7 +359,7 @@ We are now ready to prove theorem \ref{theorem sur le calcul des longueurs}.
 	\end{equation}
 	As every of the $t_i=s_1...s_i...s_1$ are different from each other. \qed
 \end{proof}
-The following theorem, describe the writing reduction of a word in a Coxeter group when this one is not written in a minimal way. 
+The following theorem, describe the writing reduction of a word in a Coxeter group when this one is not written in a minimal way.
 \begin{theorem}[Deletion property]
 	Let $(W,S)$ be a Coxeter system and let $w=s_1s_2...s_k$ for some $k$ with $l(w)<k$ then there exists two different indices $1\leq i<j\leq k$ such that :
 	\begin{equation}
